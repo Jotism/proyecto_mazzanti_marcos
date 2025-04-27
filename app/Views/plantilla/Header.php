@@ -20,19 +20,22 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active text-light" aria-current="page" href="/proyecto_mazzanti_marcos">Inicio</a>
+              <a class="nav-link active text-light txt-menu" aria-current="page" href="/proyecto_mazzanti_marcos">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="/proyecto_mazzanti_marcos/Quienes-Somos">Quienes Somos</a>
+              <a class="nav-link text-light txt-menu" href="#">Cátalogo</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="/proyecto_mazzanti_marcos/Terminos-Y-Uso">Términos y Usos</a>
+              <a class="nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/Quienes-Somos">Quienes Somos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="#">Contacto</a>
+              <a class="nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/Terminos-Y-Uso">Términos y Usos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="#">Comercialización</a>
+              <a class="nav-link text-light txt-menu" href="#">Contacto</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light txt-menu" href="#">Comercialización</a>
             </li>
           </ul>
         </div>
