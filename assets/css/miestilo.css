@@ -17,22 +17,9 @@
 	opacity: 0.9 !important;
 }
 
-
-.navbar{
-	.navbar-expand{-sm|-md|-lg|-xl|-xxl}
-}
-
-.logo-menu{
-	text-align: center;
-}
-
 .img-logo-menu{
 	height: 70px;
 	width: 140px;
-}
-
-.logo-principal{
-	text-align: center;
 }
 
 .img-logo-footer{
