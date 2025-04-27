@@ -1,0 +1,110 @@
+@import url('https://fonts.cdnfonts.com/css/a-otf-shin-go-pro');
+
+.selector-for-some-widget {
+  box-sizing: content-box;
+}
+
+
+.bg-primary{
+	background-color: var(--bs-gray-800) !important;
+	border-color: transparent !important;
+
+}
+
+.bg-secondary{
+	background-color: darkred !important;
+	border-color: transparent !important;
+	opacity: 0.9 !important;
+}
+
+
+.navbar{
+	.navbar-expand{-sm|-md|-lg|-xl|-xxl}
+}
+
+.logo-menu{
+	text-align: center;
+}
+
+.img-logo-menu{
+	height: 70px;
+	width: 140px;
+}
+
+.logo-principal{
+	text-align: center;
+}
+
+.img-logo-footer{
+	width: 100%;
+	height: 100%;
+}
+
+.img-logo-principal{
+	width: 140px;
+	height: 70px;
+}
+
+.Logo-redes{
+	width: 45px;
+	height: 45px;
+	padding: 0;
+	margin: 0;
+}
+
+.Texto-Redes{
+	text-transform: capitalize;
+  font-weight: bolder;
+  font-size: 60px;
+}
+
+.item-carrusel{
+	height: 80vh;
+}
+
+.img-carrusel{
+	
+	height: 100%;
+	object-fit: cover;
+}
+
+
+
+
+.txt-marcas-principal{
+	text-align: center;
+	font-family: 'A-OTF Shin Go Pro', sans-serif;
+	font-size: 300%;
+}
+
+
+.botones-marca-principal{
+	width: 50px;
+	height: 50px;
+	display: inline-block;
+}
+
+.img-botones-principal{
+
+}
+
+.img-boton-principal{
+	margin: 1.5%;
+	
+	width: 110px;
+	height: 110px;
+}
+
+.img-mclaren-oculto{
+	display: none;
+}
+
+.img-mclaren:hover + .img-mclaren-oculto{
+	display: block;
+	width: 100%;
+	height: 33%;
+}
+
+.img-boton-principal:hover{
+	filter: brightness(0.9);
+}
