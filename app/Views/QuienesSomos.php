@@ -1,10 +1,9 @@
+<section id="quienes-somos">
+    <h1>Quiénes somos</h1>
+    <p>En Xport nos especializamos en la comercialización de vehículos de alta gama, ofreciendo a nuestros clientes una experiencia exclusiva en la adquisición de autos de lujo.
+    Nuestra misión es acercar las mejores marcas del mundo automotor a quienes valoran el diseño, el confort y la tecnología.</p>
+    <p>Contamos con una trayectoria consolidada en el sector, brindando atención personalizada y asesoramiento profesional a cada cliente.
+    Nuestro equipo está formado por expertos apasionados por los autos, quienes acompañan cada compra con seriedad, compromiso y transparencia.</p>
+    <p>Todos los vehículos se retiran personalmente en nuestros almacenes habilitados en Argentina, garantizando una entrega segura y eficiente.</p>
+</section>
 
-    <h1></h1>
-  	<h1>Legendary Motorsport</h1>
-    <div>
-  	 <h2>Somos una empresa que se dedica a la venta de autos de lujo con
-        diseños únicos e innovadores. Utilizamos materia prima de calidad. Elaboramos
-        productos a la medida del cliente.</h2>
-    </div>
-    
-    <img src="https://static.wikia.nocookie.net/gtawiki/images/f/fa/LegendaryMotorsport-GTAV-Logo.png" alt="Logo">
