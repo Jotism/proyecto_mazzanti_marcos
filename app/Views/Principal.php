@@ -5,7 +5,6 @@
           <button type="button" data-bs-target="#carrusel-principal" data-bs-slide-to="1" aria-label="Slide 2"></button>
           <button type="button" data-bs-target="#carrusel-principal" data-bs-slide-to="2" aria-label="Slide 3"></button>
           <button type="button" data-bs-target="#carrusel-principal" data-bs-slide-to="3" aria-label="Slide 4"></button>
-          <button type="button" data-bs-target="#carrusel-principal" data-bs-slide-to="4" aria-label="Slide 5"></button>
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active item-carrusel">
@@ -19,9 +18,6 @@
           </div>
           <div class="carousel-item item-carrusel">
             <img src="assets/img/img-carrusel-4.jpg" class="d-block w-100 img-carrusel" alt="Slide4">
-          </div>
-          <div class="carousel-item item-carrusel">
-            <img src="assets/img/img-carrusel-5.jpg" class="d-block w-100 img-carrusel" alt="Slide5">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carrusel-principal" data-bs-slide="prev">

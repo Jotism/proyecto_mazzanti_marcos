@@ -14,12 +14,11 @@
 .bg-secondary{
 	background-color: darkred !important;
 	border-color: transparent !important;
-	opacity: 0.9 !important;
 }
 
 .img-logo-menu{
-	height: 70px;
-	width: 140px;
+	height: 65px;
+	width: 130px;
 }
 
 .img-logo-footer{
@@ -27,10 +26,7 @@
 	height: 100%;
 }
 
-.img-logo-principal{
-	width: 140px;
-	height: 70px;
-}
+
 
 .Logo-redes{
 	width: 45px;
@@ -46,7 +42,7 @@
 }
 
 .item-carrusel{
-	height: 80vh;
+	height: 90vh;
 }
 
 .img-carrusel{
@@ -77,7 +73,6 @@
 
 .img-boton-principal{
 	margin: 1.5%;
-	
 	width: 110px;
 	height: 110px;
 }
