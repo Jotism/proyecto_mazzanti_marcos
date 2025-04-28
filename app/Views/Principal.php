@@ -18,7 +18,7 @@
             </div>
           </div>
           <div class="carousel-item item-carrusel">
-            <img src="assets/img/img-carrusel-3.jpg" class="d-block w-100 img-carrusel" alt="Slide2">
+            <img src="assets/img/img-carrusel-2.jpg" class="d-block w-100 img-carrusel" alt="Slide2">
             <div class="carousel-caption mt-5 top-0">
               <p class="txt-carrusel-2">¿Necesitas asesoramiento para encontrar tu auto ideal?</p>
             </div>
@@ -27,7 +27,7 @@
             </div>
           </div>
           <div class="carousel-item item-carrusel">
-            <img src="assets/img/img-carrusel-4.jpg" class="d-block w-100 img-carrusel" alt="Slide3">
+            <img src="assets/img/img-carrusel-3.jpg" class="d-block w-100 img-carrusel" alt="Slide3">
             <div class="carousel-caption">
               <p class="txt-carrusel-3">Mas de 40 años en el mercado</p>
             </div>
@@ -47,11 +47,27 @@
     <div class="text-center txt-marcas-principal text-light">
       <p>Los mejores deportivos del mercado</p>
     </div>
-    <br>
+    <br><br>
     <div class="text-center">
       <a href="#"><img src="assets/img/logo-bugatti.png" class="img-boton-principal"></a>
       <a href="#"><img src="assets/img/logo-mclaren.png" class="img-boton-principal"></a>
       <a href="#"><img src="assets/img/logo-ferrari.png" class="img-boton-principal"></a>
       <a href="#"><img src="assets/img/logo-astonmartin.png" class="img-boton-principal"></a>
       <a href="#"><img src="assets/img/logo-maserati.png" class="img-boton-principal"></a>
+    </div>
+    <br>
+    <div class="marcas bg-secondary">
+      <div class="container-marcas">
+        <div class="row linea-marcas">
+          <div class="col-3 columna-marcas">
+            <img src="assets/img/img-marca-1.jpg">
+          </div>
+          <div class="col-3 columna-marcas">
+            <img src="assets/img/img-marca-3.jpg">
+          </div>
+          <div class="col-3 columna-marcas">
+            <img src="assets/img/img-marca-2.jpg">
+          </div>
+        </div>
+      </div>
     </div>
