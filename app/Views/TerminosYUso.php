@@ -1,14 +1,19 @@
 <section id="terminos-uso">
-    <h1>Términos y uso</h1>
-    <p><strong>Servicios ofrecidos:</strong> Venta de vehículos de alta gama con retiro en almacenes habilitados.</p>
-    <p><strong>Políticas de privacidad:</strong> Toda la información proporcionada por los clientes es tratada de manera confidencial y segura. Xport no comparte datos personales con terceros sin consentimiento expreso.</p>
-    <p><strong>Procedimiento de compra:</strong></p>
+    <h1>Términos y Uso</h1>
+
+    <h2>Servicios Ofrecidos</h2>
+    <p>Xport se dedica a la venta de automóviles de alta gama, brindando a sus clientes asesoramiento personalizado y facilidades de financiación. Todos los vehículos deben ser retirados de manera presencial en nuestros almacenes habilitados.</p>
+
+    <h2>Políticas de Privacidad</h2>
+    <p>La información personal suministrada por nuestros clientes es confidencial y se utiliza exclusivamente para fines comerciales vinculados a las operaciones de venta. No compartimos datos con terceros sin consentimiento previo.</p>
+
+    <h2>Formas y Procedimientos en la Venta</h2>
     <ul>
-        <li>Selección del vehículo</li>
-        <li>Elección del método de pago</li>
-        <li>Coordinación del retiro en almacén</li>
+        <li><strong>Garantía:</strong> Todos los vehículos cuentan con garantía oficial ofrecida por el fabricante o una garantía limitada según el modelo adquirido.</li>
+        <li><strong>Soporte Post Venta:</strong> Brindamos asistencia post venta en cuestiones de documentación, patentamiento y consultas generales.</li>
+        <li><strong>Forma de Entrega:</strong> El único método de entrega es mediante retiro en el local, previa coordinación con nuestro equipo de ventas.</li>
+        <li><strong>Tiempo de Retiro:</strong> El cliente dispone de hasta 30 días hábiles para efectuar el retiro del vehículo una vez confirmada la compra.</li>
     </ul>
-    <p><strong>Formas de entrega:</strong> Únicamente retiro presencial en nuestros locales habilitados. No realizamos envíos.</p>
-    <p><strong>Soporte postventa:</strong> Ofrecemos asesoramiento y atención posterior a la compra para resolver cualquier duda o necesidad.</p>
-    <p><strong>Tiempo máximo para el retiro:</strong> 30 días hábiles desde la confirmación del pago.</p>
+
+    <p>Al realizar una compra en Xport, el cliente acepta y se compromete a respetar los términos y condiciones aquí detallados.</p>
 </section>

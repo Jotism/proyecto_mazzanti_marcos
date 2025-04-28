@@ -55,7 +55,10 @@
 	object-fit: cover;
 }
 
-
+.img-quienesSomos{
+	height: 30%;
+	width: 40%;
+}
 
 
 .txt-marcas-principal{
