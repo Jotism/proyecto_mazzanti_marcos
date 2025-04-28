@@ -26,15 +26,15 @@ class Home extends BaseController
                 break;
 
             case "Contacto":
-                echo view('Principal');
+                echo view('Contacto');
                 break;
 
             case "Comercializacion":
-                echo view('Principal');
+                echo view('Comercializacion');
                 break;
 
             case "Terminos Y Usos":
-                echo view('Principal');
+                echo view('TerminosYUso');
                 break;
 
             case "Catalogo":

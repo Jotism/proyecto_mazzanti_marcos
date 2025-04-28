@@ -1,19 +1,24 @@
-<section id="terminos-uso">
-    <h1>Términos y Uso</h1>
+<h2>Servicios ofrecidos</h2>
+<ul>
+  <li>Venta de automóviles de alta gama de diferentes marcas reconocidas a nivel mundial.</li>
+  <li>Asesoramiento personalizado previo a la compra.</li>
+  <li>Servicio de financiación adaptado a las necesidades del cliente.</li>
+</ul>
 
-    <h2>Servicios Ofrecidos</h2>
-    <p>Xport se dedica a la venta de automóviles de alta gama, brindando a sus clientes asesoramiento personalizado y facilidades de financiación. Todos los vehículos deben ser retirados de manera presencial en nuestros almacenes habilitados.</p>
+<h2>Políticas de privacidad</h2>
+<ul>
+  <li>Protección de los datos personales proporcionados por los usuarios en el proceso de compra.</li>
+  <li>Los datos no se comparten con terceros sin consentimiento expreso.</li>
+  <li>El usuario tiene derecho a solicitar la eliminación de sus datos en cualquier momento.</li>
+</ul>
 
-    <h2>Políticas de Privacidad</h2>
-    <p>La información personal suministrada por nuestros clientes es confidencial y se utiliza exclusivamente para fines comerciales vinculados a las operaciones de venta. No compartimos datos con terceros sin consentimiento previo.</p>
-
-    <h2>Formas y Procedimientos en la Venta</h2>
-    <ul>
-        <li><strong>Garantía:</strong> Todos los vehículos cuentan con garantía oficial ofrecida por el fabricante o una garantía limitada según el modelo adquirido.</li>
-        <li><strong>Soporte Post Venta:</strong> Brindamos asistencia post venta en cuestiones de documentación, patentamiento y consultas generales.</li>
-        <li><strong>Forma de Entrega:</strong> El único método de entrega es mediante retiro en el local, previa coordinación con nuestro equipo de ventas.</li>
-        <li><strong>Tiempo de Retiro:</strong> El cliente dispone de hasta 30 días hábiles para efectuar el retiro del vehículo una vez confirmada la compra.</li>
-    </ul>
+<h2>Formas y procedimientos involucrados en la venta</h2>
+<ul>
+  <li>Formas de pago: transferencia bancaria, depósito, tarjeta de débito o financiación propia.</li>
+  <li>Entrega: el vehículo debe ser retirado personalmente en el local correspondiente.</li>
+  <li>Tiempo de retiro: hasta 30 días hábiles después de la confirmación del pago.</li>
+  <li>Garantía: los vehículos cuentan con garantía oficial de fábrica según la marca.</li>
+  <li>Soporte post venta: asistencia sobre cuestiones administrativas relacionadas con la adquisición.</li>
+</ul>
 
     <p>Al realizar una compra en Xport, el cliente acepta y se compromete a respetar los términos y condiciones aquí detallados.</p>
-</section>

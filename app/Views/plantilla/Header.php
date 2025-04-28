@@ -32,10 +32,10 @@
               <a class="nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/Terminos-Y-Uso">Términos y Usos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light txt-menu" href="#">Contacto</a>
+              <a class="nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/Contacto">Contacto</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light txt-menu" href="#">Comercialización</a>
+              <a class="nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/Comercializacion">Comercialización</a>
             </li>
           </ul>
         </div>

@@ -96,12 +96,6 @@
 	background-color: transparent !important;
 }
 
-.img-quienesSomos{
-	height: 30%;
-	width: 40%;
-}
-
-
 .txt-marcas-principal{
 	text-align: center;
 	font-family: 'A-OTF Shin Go Pro', sans-serif;
@@ -139,4 +133,27 @@
 	filter: brightness(0.9);
 }
 
+.texto-QS{
+	text-align: center;
+}
+.img-quienesSomos{
+	height: 70%;
+	width: 70%;
+}
 
+.linea-QS1 {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.col-2{
+	flex-basis: 50%;
+	min-width: 300px;
+}
+
+.col-2 img{
+	max-width: 100%;
+	padding: 50px 0px;
+}
