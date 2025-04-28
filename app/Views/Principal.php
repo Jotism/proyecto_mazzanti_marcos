@@ -47,11 +47,27 @@
     <div class="text-center txt-marcas-principal text-light">
       <p>Los mejores deportivos del mercado</p>
     </div>
-    <br>
+    <br><br>
     <div class="text-center">
       <a href="#"><img src="assets/img/logo-bugatti.png" class="img-boton-principal"></a>
       <a href="#"><img src="assets/img/logo-mclaren.png" class="img-boton-principal"></a>
       <a href="#"><img src="assets/img/logo-ferrari.png" class="img-boton-principal"></a>
       <a href="#"><img src="assets/img/logo-astonmartin.png" class="img-boton-principal"></a>
       <a href="#"><img src="assets/img/logo-maserati.png" class="img-boton-principal"></a>
+    </div>
+    <br>
+    <div class="marcas bg-secondary">
+      <div class="container-marcas">
+        <div class="row linea-marcas">
+          <div class="col-3 columna-marcas">
+            <img src="assets/img/img-marca-1.jpg">
+          </div>
+          <div class="col-3 columna-marcas">
+            <img src="assets/img/img-marca-3.jpg">
+          </div>
+          <div class="col-3 columna-marcas">
+            <img src="assets/img/img-marca-2.jpg">
+          </div>
+        </div>
+      </div>
     </div>
