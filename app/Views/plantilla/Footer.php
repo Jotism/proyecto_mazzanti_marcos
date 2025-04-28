@@ -1,24 +1,25 @@
  <script src="assets/js/bootstrap.bundle.min.js" ></script>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
  </br>
  </br>
   </body>
-  <footer class="--bs-secondary-bg">
+  <footer class="--bg-secondary-bg">
   <div class="container text-center">
     <div class="row row-cols-3">
-      <div class="col border-end border-5">
+      <div class="col border-end border-1">
         <a href="/proyecto_mazzanti_marcos/Contacto">Contacto</a> <br>
         <a href="/proyecto_mazzanti_marcos/Comercializacion">Comercializacion</a> <br>
-        <a href="/proyecto_mazzanti_marcos/Terminos-Y-Usos">Terminos y Uso</a>
+        <a href="/proyecto_mazzanti_marcos/Terminos-Y-Uso">Terminos y Uso</a>
       </div>
 
-      <div class="col border-end border-5">
+      <div class="col border-end border-1">
         <div class="row row-cols-3 gx--10 gy-2">
-            <div class="col px-0"><img class= "Logo-redes", src="assets/img/tLogo.png" alt="LogoF" ></div>
-            <div class="col px-0"><img class= "Logo-redes", src="assets/img/fLogo.png" alt="LogoF" ></div>
-            <div class="col px-0"><img class= "Logo-redes", src="assets/img/xLogo.png" alt="LogoF" ></div>
-            <div class="col px-0"><img class= "Logo-redes", src="assets/img/iLogo.png" alt="LogoF" ></div>
-            <div class="col px-0"><img class= "Logo-redes", src="assets/img/lLogo.png" alt="LogoF" ></div>
-            <div class="col px-0"><img class= "Logo-redes", src="assets/img/yLogo.png" alt="LogoF" ></div>
+            <div class="col px-0"><a href="/proyecto_mazzanti_marcos/Contacto"><i style = "color:white" class="bi bi-whatsapp h1"></a></i></div>
+            <div class="col px-0"><a href="https://www.facebook.com/profile.php?id=61575757802170"> <i style = "color:white" class="bi bi-facebook h1"></i></a></div>
+            <div class="col px-0"><a href="https://x.com/Xport245560"> <i style = "color:white" class="bi bi-twitter-x h1"></i></a></div>
+            <div class="col px-0"><a href="https://www.instagram.com/xportempresa/"><i style = "color:white" class="bi bi-instagram h1"></a></i></div>
+            <div class="col px-0"><a href="https://www.linkedin.com/in/joaquin-rojas-yaccuzzi-68534b243/"><i style = "color:white" class="bi bi-linkedin h1"></a></i></div>
+            <div class="col px-0"><a href="https://www.youtube.com/@XportEmpresa"><i style = "color:white" class="bi bi-youtube h1"></i></a></div>
         </div>
       </div>
 

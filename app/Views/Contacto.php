@@ -1,4 +1,3 @@
-<section id="contacto">
 <h1>Contacto</h1>
     <p>¿Querés ponerte en contacto con nosotros?</p>
     <p>En Xport estamos para ayudarte a encontrar el auto de tus sueños. 
@@ -19,4 +18,3 @@
     </ul>
     <p>También te invitamos a visitarnos personalmente en nuestro local,
        donde podrás ver todos los modelos disponibles y recibir atención personalizada de nuestro equipo especializado. ¡Te esperamos!</p>
-</section>

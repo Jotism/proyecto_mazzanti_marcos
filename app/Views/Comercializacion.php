@@ -1,4 +1,3 @@
-<section id="comercializacion">
     <h1>Comercialización</h1>
     <h2>Formas de Entrega</h2>
     <p> En Xport, la única modalidad de entrega disponible es el retiro en nuestros almacenes habilitados dentro del país.
@@ -13,5 +12,4 @@
     <h2>Información Adicional</h2>
     <p>Recordamos a nuestros clientes que al momento del retiro deberán presentar la documentación correspondiente que acredite la compra. 
        También podrán coordinar asesoramiento personalizado sobre garantías y mantenimientos sugeridos para su vehículo.</p>
-</section>
 
