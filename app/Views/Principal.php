@@ -18,7 +18,7 @@
             </div>
           </div>
           <div class="carousel-item item-carrusel">
-            <img src="assets/img/img-carrusel-3.jpg" class="d-block w-100 img-carrusel" alt="Slide2">
+            <img src="assets/img/img-carrusel-2.jpg" class="d-block w-100 img-carrusel" alt="Slide2">
             <div class="carousel-caption mt-5 top-0">
               <p class="txt-carrusel-2">¿Necesitas asesoramiento para encontrar tu auto ideal?</p>
             </div>
@@ -27,7 +27,7 @@
             </div>
           </div>
           <div class="carousel-item item-carrusel">
-            <img src="assets/img/img-carrusel-4.jpg" class="d-block w-100 img-carrusel" alt="Slide3">
+            <img src="assets/img/img-carrusel-3.jpg" class="d-block w-100 img-carrusel" alt="Slide3">
             <div class="carousel-caption">
               <p class="txt-carrusel-3">Mas de 40 años en el mercado</p>
             </div>
