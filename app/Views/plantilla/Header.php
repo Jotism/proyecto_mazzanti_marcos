@@ -23,7 +23,7 @@
               <a class="nav-link active text-light txt-menu" aria-current="page" href="/proyecto_mazzanti_marcos">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light txt-menu" href="#">Cátalogo</a>
+              <a class="nav-link text-light txt-menu" href="#">Catálogo</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/Quienes-Somos">Quienes Somos</a>

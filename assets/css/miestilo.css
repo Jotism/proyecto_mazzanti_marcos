@@ -22,7 +22,12 @@
 }
 
 .txt-menu{
-	font-size: 25px;
+	font-size: larger;
+}
+
+
+.nav-item{
+	padding: 0 10px;
 }
 
 .img-logo-footer{
@@ -50,9 +55,45 @@
 }
 
 .img-carrusel{
-	
 	height: 100%;
 	object-fit: cover;
+}
+
+.txt-carrusel-1-1, .txt-carrusel-1-2, .txt-carrusel-2, .txt-carrusel-3{
+	text-shadow: 1px 2px black;
+}
+
+.txt-carrusel-1-2, .txt-carrusel-2{
+	font-size: 55px;
+	font-weight: bold;
+}
+
+.txt-carrusel-1-1, .txt-carrusel-3{
+	font-size: 80px;
+	font-weight: bolder;
+	text-align: left !important;
+}
+
+.txt-carrusel-1-2{
+	text-align: right !important;
+}
+
+.btn-carrusel-1{
+	font-size: large;
+	background-color: white;
+	margin-top: 10px;
+	margin-bottom: 15px;
+}
+
+.btn-carrusel-2{
+	font-size: large;
+	background-color: white;
+	margin-bottom: 20px;
+	
+}
+
+.btn-carrusel-1:hover, .btn-carrusel-2:hover{
+	background-color: transparent !important;
 }
 
 .img-quienesSomos{
@@ -97,3 +138,5 @@
 .img-boton-principal:hover{
 	filter: brightness(0.9);
 }
+
+
