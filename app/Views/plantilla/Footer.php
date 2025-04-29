@@ -6,9 +6,9 @@
   <div class="container text-center">
     <div class="row row-cols-3">
       <div class="col border-end border-1 columnas-footer">
-        <a class="link-light link-underline-opacity-0" href="/proyecto_mazzanti_marcos/Contacto">Contacto</a> <br>
-        <a class="link-light link-underline-opacity-0" href="/proyecto_mazzanti_marcos/Comercializacion">Comercializacion</a> <br>
-        <a class="link-light link-underline-opacity-0" href="/proyecto_mazzanti_marcos/Terminos-Y-Uso">Terminos y Uso</a>
+        <a class="link-light link-underline-opacity-0 link-footer" href="/proyecto_mazzanti_marcos/Contacto">Contacto</a> <br>
+        <a class="link-light link-underline-opacity-0 link-footer" href="/proyecto_mazzanti_marcos/Comercializacion">Comercializacion</a> <br>
+        <a class="link-light link-underline-opacity-0 link-footer" href="/proyecto_mazzanti_marcos/Terminos-Y-Uso">Terminos y Uso</a>
       </div>
 
       <div class="col border-end border-1 columnas-footer">

@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 <div style="max-width: 800px; margin: auto;" class = "txt-pag">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-=======
-<div style="max-width: 800px; margin: auto;" class = "text-light txt-pag"
->>>>>>> b3ce7eaa25f1734dd06535bbab9b4d6d868af385
   <br>
   <br>
   <h2 class="titulos-TYU">

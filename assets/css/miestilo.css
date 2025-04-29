@@ -329,3 +329,32 @@
 	padding: 20px;
   }
   
+
+  @media screen and (max-width: 1280px) {
+	.txt-carrusel-1-1, .txt-carrusel-1-2{
+		text-align: center !important;
+	}
+	.txt-carrusel-1-1{
+		font-size: 55px;
+	}
+  }
+
+  @media screen and (max-width: 768px) {
+	.txt-carrusel-1-1, .txt-carrusel-1-2, .txt-carrusel-2, .txt-carrusel-3{
+		font-size: 35px;
+		text-align: center !important;
+	}
+
+	.txt-marcas-principal{
+		font-size: 275%;
+	}
+
+	.img-logo-footer{
+		width: 100px;
+		height: 50px;
+	}
+
+	.link-footer{
+		font-size: small;
+	}
+  }
