@@ -342,8 +342,21 @@
     outline: none;
 }
 
+.contenedor-botones-catalogo{
+	display: flex;
+  justify-content: center; 
+  align-items: center;     
+  gap: 10px;               
+  margin-top: 20px; 
+}
+
 .boton-pagina{
     margin: 0 auto 80px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	
 }
 
 .boton-pagina span{
@@ -360,6 +373,8 @@
 .boton-pagina span:hover{
     background-color: black;
     color: white;
+	justify-content: space-around;
+	align-items: center;
 }
   
 
