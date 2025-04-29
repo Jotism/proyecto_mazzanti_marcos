@@ -45,7 +45,7 @@
     </section>
     <br><br>
     <div class="text-center txt-marcas-principal text-light">
-      <p>Los mejores deportivos del mercado</p>
+      <p>Los mejores deportivos del pais</p>
     </div>
     <br><br>
     <div class="text-center">
@@ -67,6 +67,32 @@
           </div>
           <div class="col-3 columna-marcas">
             <img src="assets/img/img-marca-2.jpg">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-productos-principal">
+      <h2 class="txt-titulo-productos-principal">Productos Destacados</h2>
+      <div class="row linea-productos-principal">
+        <div class="col-4 columna-productos-principal">
+          <img src="assets/img/img-producto-1.png">
+          <div class="txt-productos-principal">
+            <div class="nombre-producto-principal">Maserati MC20</div>
+            <div class="precio-producto-principal">$215.999</div>
+          </div>
+        </div>
+        <div class="col-4 columna-productos-principal">
+          <img src="assets/img/img-producto-2.png">
+          <div class="txt-productos-principal">
+            <div class="nombre-producto-principal">Aston Martin Vantage</div>
+            <div class="precio-producto-principal">$193,999</div>
+          </div>
+        </div>
+        <div class="col-4 columna-productos-principal">
+          <img src="assets/img/img-producto-3.png">
+          <div class="txt-productos-principal">
+            <div class="nombre-producto-principal">Ferrari SF90 Stradale</div>
+            <div class="precio-producto-principal">$523.999</div>
           </div>
         </div>
       </div>
