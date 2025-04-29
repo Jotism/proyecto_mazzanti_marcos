@@ -38,7 +38,7 @@ class Home extends BaseController
                 break;
 
             case "Catalogo":
-                echo view('Principal');
+                echo view('Catalogo');
                 break;
 
             case "Consultas":
