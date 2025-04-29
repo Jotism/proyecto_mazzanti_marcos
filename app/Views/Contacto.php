@@ -1,13 +1,13 @@
 <br>
-<div class = "text-light txt-pag">
+<div class = "txt-pag">
 <br>
-    <h1>Contacto</h1>
+    <h1 class = "titulos-contacto">Contacto</h1>
     <p><strong>¿Querés ponerte en contacto con nosotros?</strong></p>
     <p>En Xport estamos para ayudarte a encontrar el auto de tus sueños. 
        Si tenés consultas, querés agendar una visita o simplemente necesitás más información, podés comunicarte a través de los siguientes medios:</p>
     
 <br>
-    <h2>Medios de Contacto</h2>
+    <h2 class = "titulos-contacto">Medios de Contacto</h2>
     <ul style="list-style: none; padding: 0;">
         <li><strong>Teléfono:</strong> 3795323328</li>
         <li><strong>Email: </strong> XportContacto@gmail.com</li>
@@ -15,7 +15,7 @@
     </ul>
 
 <br>
-    <h2>Información Legal</h2>
+    <h2 class = "titulos-contacto">Información Legal</h2>
     <ul style="list-style: none; padding: 0;">
         <li><strong>Razón Social:</strong> Xport</li>
         <li><strong>Titular: </strong>Marcos Santino Mazzanti y Joaquin Rojas Yacuzzi</li>

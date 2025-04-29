@@ -14,7 +14,7 @@
             </div>
             <div class="carousel-caption mt-5">
               <p class="txt-carrusel-1-2">Hoy puede ser tuyo</p>
-              <button class="btn btn-outline-danger text-uppercase btn-carrusel-1" role="button" data-bs-toggle="button">explorar catálogo</button>
+              <a href="/proyecto_mazzanti_marcos/Catalogo" class="btn btn-outline-danger text-uppercase btn-carrusel-1" role="button" data-bs-toggle="button">explorar catálogo</a>
             </div>
           </div>
           <div class="carousel-item item-carrusel">
@@ -23,7 +23,7 @@
               <p class="txt-carrusel-2">¿Necesitas asesoramiento para encontrar tu auto ideal?</p>
             </div>
             <div class="carousel-caption">
-              <a href="" class="btn btn-outline-danger text-uppercase btn-carrusel-2" role="button" data-bs-toggle="button">contactanos</a>
+              <a href="/proyecto_mazzanti_marcos/Contacto" class="btn btn-outline-danger text-uppercase btn-carrusel-2" role="button" data-bs-toggle="button">contactanos</a>
             </div>
           </div>
           <div class="carousel-item item-carrusel">

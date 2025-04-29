@@ -1,20 +1,21 @@
-<div style="max-width: 800px; margin: auto;" class = "text-light txt-pag">
+<div style="max-width: 800px; margin: auto;" class = "txt-pag">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <br>
   <br>
-  <h2>
-  <i class="bi bi-car-front-fill h1" style = "color:white"></i>
-    Servicios ofrecidos</h2>
+  <h2 class="titulos-TYU">
+    <i class="bi bi-car-front-fill h1" style = "color:white"></i>
+      Servicios ofrecidos
+  </h2>
 <ul style="list-style: none; padding: 0;">
   <li>Venta de automóviles de alta gama de diferentes marcas reconocidas a nivel mundial.</li>
   <li>Asesoramiento personalizado previo a la compra.</li>
   <li>Servicio de financiación adaptado a las necesidades del cliente.</li>
 </ul>
 <br>
-<h2>
-<i class="bi bi-person-fill-lock" style = "color:white"></i>
-
-Políticas de Privacidad</h2>
+<h2 class="titulos-TYU">
+  <i class="bi bi-person-fill-lock" style = "color:white"></i>
+  Políticas de Privacidad
+</h2>
 
 <ul style="list-style: none; padding: 0;">
     <li><strong>Qué datos personales se recopilan:</strong> Recopilamos información necesaria para procesar las operaciones de compra y brindar un mejor servicio, incluyendo nombre completo, dirección, correo electrónico, número de teléfono, datos de pago y, en algunos casos, número de documento de identidad.</li>
@@ -30,9 +31,9 @@ Políticas de Privacidad</h2>
 
 <br>
 
-<h2>
-<i class="bi bi-file-earmark-text" style = "color:white"></i>
-Formas y procedimientos involucrados en la venta
+<h2 class="titulos-TYU">
+  <i class="bi bi-file-earmark-text" style = "color:white"></i>
+  Formas y procedimientos involucrados en la venta
 </h2>
 <ul style="list-style: none; padding: 0;">
   <li><strong>Formas de pago:</strong> transferencia bancaria, depósito, tarjeta de débito o financiación propia.</li>
