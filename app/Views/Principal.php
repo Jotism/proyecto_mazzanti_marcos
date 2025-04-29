@@ -14,7 +14,7 @@
             </div>
             <div class="carousel-caption mt-5">
               <p class="txt-carrusel-1-2">Hoy puede ser tuyo</p>
-              <a href="/proyecto_mazzanti_marcos/Catalogo" class="btn btn-outline-danger text-uppercase btn-carrusel-1" role="button" data-bs-toggle="button">explorar catálogo</a>
+              <a class="btn btn-outline-danger text-uppercase btn-carrusel-1" href="/proyecto_mazzanti_marcos/Catalogo" style="z-index: 10; position: relative;">explorar catálogo</a>
             </div>
           </div>
           <div class="carousel-item item-carrusel">
@@ -23,7 +23,7 @@
               <p class="txt-carrusel-2">¿Necesitas asesoramiento para encontrar tu auto ideal?</p>
             </div>
             <div class="carousel-caption">
-              <a href="/proyecto_mazzanti_marcos/Contacto" class="btn btn-outline-danger text-uppercase btn-carrusel-2" role="button" data-bs-toggle="button">contactanos</a>
+            <a class="btn btn-outline-danger text-uppercase btn-carrusel-2" href="/proyecto_mazzanti_marcos/Contacto" style="z-index: 10; position: relative;">contactanos</a>
             </div>
           </div>
           <div class="carousel-item item-carrusel">
@@ -49,11 +49,11 @@
     </div>
     <br><br>
     <div class="text-center">
-      <a href="#"><img src="assets/img/logo-bugatti.png" class="img-boton-principal"></a>
-      <a href="#"><img src="assets/img/logo-mclaren.png" class="img-boton-principal"></a>
-      <a href="#"><img src="assets/img/logo-ferrari.png" class="img-boton-principal"></a>
-      <a href="#"><img src="assets/img/logo-astonmartin.png" class="img-boton-principal"></a>
-      <a href="#"><img src="assets/img/logo-maserati.png" class="img-boton-principal"></a>
+      <a href="/proyecto_mazzanti_marcos/Catalogo"><img src="assets/img/logo-bugatti.png" class="img-boton-principal"></a>
+      <a href="/proyecto_mazzanti_marcos/Catalogo"><img src="assets/img/logo-mclaren.png" class="img-boton-principal"></a>
+      <a href="/proyecto_mazzanti_marcos/Catalogo"><img src="assets/img/logo-ferrari.png" class="img-boton-principal"></a>
+      <a href="/proyecto_mazzanti_marcos/Catalogo"><img src="assets/img/logo-astonmartin.png" class="img-boton-principal"></a>
+      <a href="/proyecto_mazzanti_marcos/Catalogo"><img src="assets/img/logo-maserati.png" class="img-boton-principal"></a>
     </div>
     <br>
     <div class="marcas bg-secondary">

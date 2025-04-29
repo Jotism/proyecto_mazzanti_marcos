@@ -328,6 +328,39 @@
 	max-width: 500px; 
 	padding: 20px;
   }
+
+  .fila-titulo{
+    justify-content: space-between;
+    margin: 100px auto 50px;
+  }
+
+.eleccion-busqueda{
+    border: 1px solid black;
+    padding: 5px;
+}
+.eleccion-busqueda:focus{
+    outline: none;
+}
+
+.boton-pagina{
+    margin: 0 auto 80px;
+}
+
+.boton-pagina span{
+    display: inline-block;
+    border: 1px solid black;
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+}
+
+.boton-pagina span:hover{
+    background-color: black;
+    color: white;
+}
   
 
   @media screen and (max-width: 1280px) {
