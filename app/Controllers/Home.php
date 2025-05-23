@@ -44,6 +44,10 @@ class Home extends BaseController
             case "Consultas":
                 echo view('Principal');
                 break;
+
+            case "Registro":
+                echo view('Registro');
+                break;
         }
     }
 }

@@ -12,3 +12,7 @@ $routes->get('/Comercializacion', 'Home::index/Comercializacion');
 $routes->get('/Terminos-Y-Uso', 'Home::index/Terminos Y Usos');
 $routes->get('/Catalogo', 'Home::index/Catalogo');
 $routes->get('/Consultas', 'Home::index/Consultas');
+
+// Rutas del registro de usuario
+$routes->get('/Registro', 'Home::index/Registro');
+$routes->post('/enviar-form', 'Usuarios_controller::formValidation');
