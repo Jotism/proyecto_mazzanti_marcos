@@ -35,6 +35,36 @@
                                 </div>
                             <?php endif; ?>
                         </div>
+                        
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea2" class="form-label">usuario</label>
+                            <input type="text" name="usuario" class="form-control" placeholder="usuario">
+                            <?php if($validation->getError('usuario')): ?>
+                                <div class="alert alert-danger mt-2">
+                                    <?= $validation->getError('usuario'); ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea3" class="form-label">email</label>
+                            <input type="text" name="email" class="form-control" placeholder="email">
+                            <?php if($validation->getError('email')): ?>
+                                <div class="alert alert-danger mt-2">
+                                    <?= $validation->getError('email'); ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea4" class="form-label">pass</label>
+                            <input type="text" name="pass" class="form-control" placeholder="pass">
+                            <?php if($validation->getError('pass')): ?>
+                                <div class="alert alert-danger mt-2">
+                                    <?= $validation->getError('pass'); ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
 
                         <!-- Botón de envío -->
                         <button type="submit" class="btn btn-primary">Enviar</button>

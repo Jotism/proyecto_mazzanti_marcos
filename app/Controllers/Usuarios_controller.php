@@ -45,7 +45,7 @@ class Usuarios_controller extends Controller{
 
             // Flashdata funciona solo en redirigir la función en el controlador en la vista de carga.
             session()->setFlashdata('success', 'Usuario registrado con exito');
-            return $this->response->redirect(to_url('/Registro'));
+            return $this->response->redirect('/proyecto_mazzanti_marcos/Registro');
         }
     }
 }
