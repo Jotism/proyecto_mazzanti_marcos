@@ -5,7 +5,7 @@ use CodeIgniter\Controller;
 
 class Usuarios_controller extends Controller{
 
-    public function construct(){
+    public function __construct(){
         helper(['form', 'url']);
     }
 
@@ -37,15 +37,56 @@ class Usuarios_controller extends Controller{
             $formModel->save([
                 'nombre' => $this->request->getVar('nombre'),
                 'apellido'=> $this->request->getVar('apellido'),
-                'usuario'=> $this->request->getVar('email'),
-                'email'=> $this->request->getVar('usuario'),
+                'usuario'=> $this->request->getVar('usuario'),
+                'email'=> $this->request->getVar('email'),
                 'pass' => password_hash($this->request->getVar('pass'), PASSWORD_DEFAULT)
-                // password_hash() crea un nuevo hash de contraseña usando un algoritmo de hash de único sentido.
             ]);
 
             // Flashdata funciona solo en redirigir la función en el controlador en la vista de carga.
             session()->setFlashdata('success', 'Usuario registrado con exito');
             return $this->response->redirect('/proyecto_mazzanti_marcos/Registro');
         }
+    }
+
+    public function login(){
+        echo view('plantilla\\Header', ['titulo' => 'Login']);
+        echo view('Login');
+        echo view('plantilla\\Footer');
+    }
+
+    public function validarLogin(){
+        $usuario = $this->request->getVar('usuario');
+        $pass = $this->request->getVar('pass');
+
+        $model = new \App\Models\Usuarios_model();
+        $dataUsuario = $model->where('usuario', $usuario)
+                            ->orWhere('email', $usuario)
+                            ->first();
+
+        if ($dataUsuario) {
+            if (password_verify($pass, $dataUsuario['pass'])) {
+                $sessionData = [
+                    'id'       => $dataUsuario['id'],
+                    'nombre'   => $dataUsuario['nombre'],
+                    'usuario'  => $dataUsuario['usuario'],
+                    'email'    => $dataUsuario['email'],
+                    'perfil_id'=> $dataUsuario['perfil_id'] ?? 2,
+                    'logged_in'=> true
+                ];
+                session()->set($sessionData);
+                return redirect()->to('/dashboard'); // o donde quieras redirigirlo
+            } else {
+                session()->setFlashdata('error', 'Contraseña incorrecta');
+            }
+        } else {
+            session()->setFlashdata('error', 'Usuario no encontrado');
+        }
+
+        return redirect()->to('/login');
+    }
+
+    public function logout(){
+        session()->destroy();
+        return redirect()->to('/login');
     }
 }
