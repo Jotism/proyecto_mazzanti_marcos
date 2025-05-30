@@ -42,18 +42,11 @@ class Usuarios_controller extends Controller{
                 'pass' => password_hash($this->request->getVar('pass'), PASSWORD_DEFAULT)
             ]);
 
-            // Flashdata funciona solo en redirigir la función en el controlador en la vista de carga.
             session()->setFlashdata('success', 'Usuario registrado con exito');
             return $this->response->redirect('/proyecto_mazzanti_marcos/Registro');
         }
     }
-
-    public function login(){
-        echo view('plantilla\\Header', ['titulo' => 'Login']);
-        echo view('Login');
-        echo view('plantilla\\Footer');
-    }
-
+    
     public function validarLogin(){
         $usuario = $this->request->getVar('usuario');
         $pass = $this->request->getVar('pass');
@@ -74,7 +67,7 @@ class Usuarios_controller extends Controller{
                     'logged_in'=> true
                 ];
                 session()->set($sessionData);
-                return redirect()->to('/dashboard'); // o donde quieras redirigirlo
+                return redirect()->to('/');
             } else {
                 session()->setFlashdata('error', 'Contraseña incorrecta');
             }

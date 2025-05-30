@@ -18,6 +18,6 @@ $routes->get('/Registro', 'Home::index/Registro');
 $routes->post('/enviar-form', 'Usuarios_controller::formValidation');
 
 //Rutas del Logueo de usuario
-$routes->get('/login', 'Usuarios_controller::login');
+$routes->get('/Login', 'Home::index/Login');
 $routes->post('/validar-login', 'Usuarios_controller::validarLogin');
 $routes->get('/logout', 'Usuarios_controller::logout');
