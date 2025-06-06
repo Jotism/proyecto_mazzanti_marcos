@@ -1,3 +1,9 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -39,5 +45,11 @@
             </li>
           </ul>
         </div>
+    <?php if (isset($_SESSION['usuario'])): ?>
+      <ul><a class="nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/logout">Cerrar sesión</a></ul>
+    <?php else: ?>
+      <ul><a class="nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/login">Iniciar Sesión</a></ul>
+      <ul><a class="nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/Registro">Registrarse</a></ul>
+    <?php endif; ?>
       </div>
     </nav>
