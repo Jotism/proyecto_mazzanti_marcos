@@ -23,6 +23,13 @@ $routes->get('/login', 'Home::index/Login');
 $routes->post('/validar-login', 'Usuarios_controller::validarLogin');
 $routes->get('/logout', 'Usuarios_controller::logout');
 
+/*Rutas del alta y baja de productos*/
+//alta
+$routes->get('/Producto_nuevo', 'Productos_controller::index');
+$routes->post('/enviar-prod', 'Productos_controller::store');
+$routes->get('/Alta_producto', 'Home::index/Alta producto');
+
+
 //Rutas para el carrito*/
 //muestra todos los productos del catalogo
 $routes->get('/todos_p','carrito_controller::catalogo',['filter' => 'auth']);

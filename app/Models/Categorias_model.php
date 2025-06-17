@@ -10,4 +10,9 @@ class Categorias_model extends Model
                                 'descripcion',  
                                 'activo'    
                                ];
+    
+    public function getCategorias()
+    {
+        return $this->findAll();
+    }
 }

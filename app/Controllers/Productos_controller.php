@@ -8,7 +8,7 @@ use App\Models\Ventas_detalle_model;
 use App\Models\Categorias_Model;
 use CodeIgniter\Controller;
 
-class Productocontroller extends Controller
+class Productos_controller extends Controller
 {
     public function __construct(){
         helper(['url', 'form']);
@@ -16,11 +16,12 @@ class Productocontroller extends Controller
     }
 
     // mostrar los productos en lista
-    public function index()
-    {
+    public function index(){
         $productoModel = new Productos_model();
-        //realizo la consulta para mostrar todos los productos
-        $data['producto'] = $productoModel->getProductoAll(); //función en el modelo
+        $categoriaModel = new Categorias_model(); // Agregado
+
+        $data['producto'] = $productoModel->getProductoAll();
+        $data['categorias'] = $categoriaModel->getCategorias(); // Agregado
 
         echo view('plantilla\Header', ['titulo' => 'Nuevo Producto']);
         echo view('productos\Producto_nuevo', $data);
@@ -85,7 +86,7 @@ class Productocontroller extends Controller
             $producto = new Productos_model();
             $producto->insert($data);
             session()->setFlashdata('success', 'Alta Exitosa...');
-            return $this->response->redirect(site_url('crear'));
+            return $this->response->redirect(site_url('/Alta_producto'));
         }
     }
 }

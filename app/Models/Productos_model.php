@@ -16,4 +16,13 @@ class Productos_model extends Model
                                 'stock_min', 
                                 'eliminado'
                                ];
+    
+                               
+    public function getProductoAll()
+    {
+        return $this
+            ->select('productos.*, categorias.nombre as categoria_nombre')
+            ->join('categorias', 'categorias.id = productos.categoria_id')
+            ->findAll();
+    }
 }
