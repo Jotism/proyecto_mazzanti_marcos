@@ -51,6 +51,10 @@ class Home extends BaseController
             case "Login":
                 echo view ('Login');
                 break;
+            case "Carrito_parte_view":
+                echo view('Carrito_parte_view');
+                break;
+
         }
     }
 }
