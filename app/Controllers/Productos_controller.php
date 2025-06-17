@@ -22,11 +22,9 @@ class Productocontroller extends Controller
         //realizo la consulta para mostrar todos los productos
         $data['producto'] = $productoModel->getProductoAll(); //función en el modelo
 
-        $dato['titulo'] = 'Crud_productos';
-        echo view('front/head_view_crud', $dato);
-        echo view('front/nav_view');
-        echo view('back/productos/producto_nuevo_view', $data);
-        echo view('front/footer_view');
+        echo view('plantilla\Header', ['titulo' => 'Nuevo Producto']);
+        echo view('productos\Producto_nuevo', $data);
+        echo view('plantilla\Footer');
     }
 
     public function crearproducto()
@@ -37,11 +35,9 @@ class Productocontroller extends Controller
         $productoModel = new Productos_model();
         $data['producto'] = $productoModel->getProductoAll();
 
-        $dato['titulo'] = 'Alta producto';
-        echo view('front/head_view', $dato);
-        echo view('front/nav_view');
-        echo view('back/productos/alta_producto_view', $data);
-        echo view('front/footer_view');
+        echo view('plantilla\Header', ['titulo' => 'Alta Producto']);
+        echo view('productos\Alta_producto', $data);
+        echo view('plantilla\Footer');
     }
 
     public function store()
@@ -64,10 +60,9 @@ class Productocontroller extends Controller
             $data['categorias'] = $categoria_model->getCategorias();
             $data['validation'] = $this->validator;
 
-            $dato['titulo'] = 'Alta';
-            echo view('front/head_view', $dato);
-            echo view('front/nav_view');
-            echo view('back/productos/alta_producto_view', $data);
+            echo view('plantilla\Header', ['titulo' => 'Alta Producto']);
+            echo view('productos\Alta_producto', $data);
+            echo view('plantilla\Footer');
         } else {
             $img = $this->request->getFile('imagen');
             // este código genera un nombre aleatorio para el archivo
