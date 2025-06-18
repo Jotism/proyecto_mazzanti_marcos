@@ -23,11 +23,16 @@ $routes->get('/login', 'Home::index/Login');
 $routes->post('/validar-login', 'Usuarios_controller::validarLogin');
 $routes->get('/logout', 'Usuarios_controller::logout');
 
-/*Rutas del alta y baja de productos*/
-//alta
-$routes->get('/Producto_nuevo', 'Productos_controller::index');
-$routes->post('/enviar-prod', 'Productos_controller::store');
-$routes->get('productos/producto/(:num)', 'Productos_controller::ver_producto/$1');
+/*Rutas de productos*/
+$routes->get('/crear', 'Productos_controller::index', ['filter' => 'auth']);
+$routes->get('/agregar', 'Productos_controller::index', ['filter' => 'auth']);
+$routes->get('/produ-form', 'Productos_controller::creaproducto', ['filter' => 'auth']);
+$routes->post('/enviar-prod', 'Productos_controller::store',['filter' => 'auth']);
+$routes->get('/editar/(:num)', 'Productos_controller::singleproducto/$1',['filter' => 'auth']);
+$routes->post('modifica/(:num)', 'Productos_controller::modifica/$l',['filter' => 'auth']);
+$routes->get('borrar/(:num)', 'Productos_controller::deleteproducto/$1');
+$routes->get('/eliminados' , 'Productos_controller::eliminados',['filter' => 'auth']);
+$routes->get('activar_pro/(:num)', 'Productos_controller::activarproducto/$1', ['filter' => 'auth']);
 
 
 //Rutas para el carrito*/
