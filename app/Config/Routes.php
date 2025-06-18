@@ -46,27 +46,27 @@ $routes->get('activar/(:num)', 'Usuario_crud_controller::activar/$1', ['filter' 
 
 //Rutas para el carrito*/
 //muestra todos los productos del catalogo
-$routes->get('/todos_p','carrito_controller::catalogo',['filter' => 'auth']);
+$routes->get('/todos_p','carrito_controller::catalogo');
 //carga la vista carrito_parte_view
-$routes->get('/muestro','carrito_controller::muestra',['filter' => 'auth']);
+$routes->get('/muestra','carrito_controller::muestra');
 //actualiza los datos del carrito
-$routes->get('/carrito_actualiza','carrito_controller::actualiza_carrito',['filter' => 'auth']);
+$routes->get('/carrito_actualiza','carrito_controller::actualiza_carrito');
 //agregar los items seleccionados
-$routes->post('carrito/add','Carrito_controller::add',['filter' => 'auth']);
+$routes->post('carrito/add','carrito_controller::add');
 //elimina un item del carrito
-$routes->get('carrito_elimina/(:any)','carrito_controller::remove/$1',['filter' => 'auth']);
+$routes->get('carrito_elimina/(:any)','carrito_controller::remove/$1');
 //elimar todo el carrito
-$routes->get('/borrar','carrito_controller::borrar_carrito',['filter' => 'auth']);
+$routes->get('/borrar','carrito_controller::borrar_carrito');
 //Registrar la venta en las tablas
-$routes->get('/carrito-comprar','Ventascontroller::registrar_venta',['filter' => 'auth']);
+$routes->get('/carrito-comprar','Ventas_controller::registrar_venta');
 //botones de sumar y restar en la vista del carrito
 $routes->get('carrito_suma/(:any)','carrito_controller::suma/$1');
 $routes->get('carrito_resta/(:any)','carrito_controller::resta/$1');
 
 // Rutas del cliente para ver sus compras y el detalle
-$routes->get('vista_compras/(:num)', 'Ventascontroller::ver_factura/$1', ['filter' => 'auth']);
-$routes->get('ver_factura_usuario/(:num)', 'Ventascontroller::ver_facturas_usuario/$1', ['filter' => 'auth']);
+$routes->get('vista_compras/(:num)', 'Ventas_controller::ver_factura/$1');
+$routes->get('ver_factura_usuario/(:num)', 'Ventas_controller::ver_facturas_usuario/$1');
 
 // Las ventas que ve el admin
-$routes->get('/ventas', 'Ventascontroller::ventas');
+$routes->get('/ventas', 'Ventas_controller::ventas');
 

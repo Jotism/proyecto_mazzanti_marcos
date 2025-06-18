@@ -6,6 +6,7 @@ use App\Models\Usuarios_model;
 use App\Models\Producto_Model;
 use App\Models\Ventas_cabecera_model;
 use App\Models\Ventas_detalle_model;
+use JasonNapolitano\Cart\Cart;
 
 class carrito_controller extends BaseController  
 {  
@@ -18,18 +19,17 @@ class carrito_controller extends BaseController
 
     public function catalogo()  
     {  
-    $productoModel = new Producto_Model();  
+    $productoModel = new Productos_model();  
     $productos = $productoModel->orderBy('id', 'DESC')->findAll();  
 
     $data = [
         'producto' => $productos,
         'titulo' => 'Todos los Productos'
     ];
-
-    echo view('Catalogo', $data); 
+    echo view('plantilla\Header', $data);
+    echo view('Catalogo', $data);
+    echo view('plantilla\Footer');
     }
-
-    
 
     public function muestra() //carrito que se muestra  
     {  
@@ -38,10 +38,9 @@ class carrito_controller extends BaseController
         $data['cart'] = $cart;  
 
         $dato['titulo'] = 'Confirmar compra';  
-        echo view('front/head_view', $dato);  
-        echo view('front/nav_view');  
-        echo view('back/carrito/carrito_parte_view', $data);  
-        echo view('front/footer_view');  
+        echo view('plantilla\Header', $dato); 
+        echo view('carrito/carrito_parte_view', $data);  
+        echo view('plantilla\Footer');
     }  
 
     public function add() //agregar productos al carrito  
@@ -92,7 +91,7 @@ class carrito_controller extends BaseController
         $cart->update([  
             'id'     => $request->getPost('id'),  
             'qty'    => 1,  
-            'price'  => $request->getPost('precio_Vta'),  
+            'price'  => $request->getPost('precio_vta'),
             'name'   => $request->getPost('nombre_prod'),  
             'imagen' => $request->getPost('imagen'),  
         ]);  
@@ -135,6 +134,7 @@ class carrito_controller extends BaseController
             } else {  
                 $cart->remove($rowid);  
             }  
-        }  
+        }
+        return redirect()->to('muestra');  
     }
 }

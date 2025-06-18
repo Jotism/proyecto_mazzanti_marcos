@@ -18,7 +18,7 @@ class Ventas_cabecera_model extends Model{
         $builder = $db->table('ventas_cabecera');
         $builder->select('*'); //Se seleccionan todas las columnas
         // Se realiza un JOIN con la tabla usuarios usando la relación entre usuarios.id_usuario y ventas_cabecera.usuario_id.
-        $builder->join('usuarios', 'usuarios.id_usuario = ventas_cabecera.usuario_id');
+        $builder->join('usuarios', 'usuarios.id = ventas_cabecera.usuario_id');
         //Ejecuta la consulta y devuelve los resultados como un array asociativo
         $query = $builder->get();
         return $query->getResultArray();
@@ -34,7 +34,7 @@ class Ventas_cabecera_model extends Model{
             $db = \Config\Database::connect();
             $builder = $db->table('ventas_cabecera');
             $builder->select('*');
-            $builder->join('usuarios', 'usuarios.id_usuario = ventas_cabecera.usuario_id');
+            $builder->join('usuarios', 'usuarios.id = ventas_cabecera.usuario_id');
             $builder->where('ventas_cabecera.usuario_id', $id_usuario);
             $query = $builder->get();
             return $query->getResultArray();

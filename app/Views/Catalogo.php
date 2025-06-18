@@ -26,7 +26,7 @@
                                             <h5 class="card-title"><?= $row['nombre_prod'] ?></h5>
                                             <p class="card-text">$<?= number_format($row['precio_vta'], 2, ',', '.') ?></p>
 
-                                            <?= form_open('carrito_agrega'); ?>
+                                            <?= form_open('carrito/add'); ?>
                                                 <?= form_hidden('id', $row['id']); ?>
                                                 <?= form_hidden('precio_vta', $row['precio_vta']); ?>
                                                 <?= form_hidden('nombre_prod', $row['nombre_prod']); ?>

@@ -1,7 +1,7 @@
 <?php
 namespace App\Controllers;
 use CodeIgniter\Controller;
-Use App\Models\Producto_model;
+Use App\Models\Productos_model;
 Use App\Models\Usuarios_model;
 Use App\Models\Ventas_cabecera_model;
 Use App\Models\Ventas_detalle_model;
@@ -15,7 +15,7 @@ class Ventas_controller extends Controller{
         $cartController = new carrito_controller(); //instancia
         $carrito_contents = $cartController->devolver_carrito();
 
-        $productoModel = new Producto_model();
+        $productoModel = new Productos_model();
         $ventasModel = new Ventas_cabecera_model();
         $detalleModel = new Ventas_detalle_model();
 
@@ -53,7 +53,7 @@ class Ventas_controller extends Controller{
 
         // Registrar cabecera de la venta
         $nueva_venta = [
-            'usuario_id' => $session->get('id_usuario'),
+            'usuario_id' => $session->get('id'),
             'total_venta' => $total
         ];
         $venta_id = $ventasModel->insert($nueva_venta);
@@ -86,10 +86,9 @@ class Ventas_controller extends Controller{
         $data['venta'] = $detalle_ventas->getDetalles($venta_id);
 
         $dato['titulo'] = "Mi compra";
-        echo view('front/head_view_crud', $dato);
-        echo view('front/nav_view');
-        echo view('back/compras/vista_compras', $data);
-        echo view('front/footer_view');
+        echo view('plantilla\Header', $dato); 
+        echo view('compras/vista_compras', $data);
+        echo view('plantilla\Footer');
     }
 
     // función del cliente para ver el detalle de su facturas de compras
@@ -99,9 +98,8 @@ class Ventas_controller extends Controller{
         $data['ventas'] = $ventas->getVentas($id_usuario);
         $dato['titulo'] = "Todos mis compras";
 
-        echo view('front/head_view_crud', $dato);
-        echo view('front/nav_view');
-        echo view('back/compras/ver_factura_usuario', $data);
-        echo view('front/footer_view');
+        echo view('plantilla\Header', $dato); 
+        echo view('compras/ver_factura_usuario', $data);
+        echo view('plantilla\Footer');
     }
 }

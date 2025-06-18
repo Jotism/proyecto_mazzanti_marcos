@@ -16,7 +16,7 @@
     <div class="text-center">
     <?php if (empty($cart)): ?>
         <p>Para agregar productos al carrito, hacé clic en:</p>
-        <a class="btn btn-warning text-dark mt-2" href="<?= base_url('/todos_p') ?>">
+        <a class="btn btn-warning text-dark mt-2" href="<?= base_url('/Catalogo') ?>">
         <i class="fa-solid fa-circle-chevron-left"></i> Volver al catálogo
         </a>
     <?php endif; ?>
@@ -53,7 +53,7 @@
             <input type="hidden" name="cart[<?= esc($item['rowid']) ?>][imagen]" value="<?= esc($item['imagen']) ?>">
 
             <tr class="table-danger align-middle">
-              <td><img src="<?= base_url('assets/uploads/' . $item['imagen']) ?>" width="80" height="80" alt="<?= esc($item['name']) ?>"></td>
+              <td><img src="<?= base_url('assets/uploads/' . $item['imagen']) ?>" width="80" height="80"></td>
               <td><?= esc($item['name']) ?></td>
               <td><?= number_format($item['price'], 2) ?></td>
               <td>
@@ -64,7 +64,7 @@
               <td><?= number_format($item['subtotal'], 2) ?></td>
               <td>
                 <a href="<?= base_url('carrito_elimina/' . $item['rowid']) ?>">
-                  <img src="<?= base_url('assets/img/carrito.jpg') ?>" width="40" height="40" alt="Eliminar">
+                  <img src="<?= base_url('assets/img/carrito.png') ?>" width="40" height="40" alt="Eliminar">
                 </a>
             </td>
         </tr>
