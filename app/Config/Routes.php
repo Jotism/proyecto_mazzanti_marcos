@@ -34,6 +34,15 @@ $routes->get('borrar/(:num)', 'Productos_controller::deleteproducto/$1');
 $routes->get('/eliminados' , 'Productos_controller::eliminados',['filter' => 'auth']);
 $routes->get('activar_pro/(:num)', 'Productos_controller::activarproducto/$1', ['filter' => 'auth']);
 
+/*Rutas de manejo de usuarios*/
+$routes->get('/users-list', 'Usuario_crud_controller::index', ['filter' => 'auth']);
+$routes->get('/user-form', 'Usuario_crud_controller::create', ['filter' => 'auth']);
+$routes->post('/enviar', 'Usuario_crud_controller::store',['filter' => 'auth']);
+$routes->get('/editar-user/(:num)', 'Usuario_crud_controller::singleUser/$1',['filter' => 'auth']);
+$routes->post('modifica-user', 'Usuario_crud_controller::update',['filter' => 'auth']);
+$routes->get('deleteLogico/(:num)', 'Usuario_crud_controller::deleteLogico/$1');
+$routes->get('activar/(:num)', 'Usuario_crud_controller::activar/$1', ['filter' => 'auth']);
+
 
 //Rutas para el carrito*/
 //muestra todos los productos del catalogo
