@@ -101,20 +101,20 @@ class Productos_controller extends Controller
             // lanzar error
             throw new \CodeIgniter\Exceptions\PageNotFoundException('No se encontró el producto seleccionado');
         }
-
+        $data['producto'] = $productModel->getProducto($id);
         // instancio el modelo de categorías
         $categoriasM = new Categorias_model();
         $data['categorias'] = $categoriasM->getCategorias(); // traigo categorías
 
         echo view('plantilla\Header', ['titulo' => 'Producto ' . $id]);
-        echo view('productos/edit', $data);
+        echo view('productos\edit', $data);
         echo view('plantilla\Footer');
     }
 
     public function modifica($id)
     {
         $productoModel = new Productos_model();
-        $id = $productoModel->where('id', $id)->first();
+        $producto = $productoModel->find($id);
         $img = $this->request->getFile('imagen');
 
         // Verifica si se cargó una imagen válida
@@ -145,6 +145,7 @@ class Productos_controller extends Controller
 
         $productoModel->update($id, $data);
         session()->setFlashdata('success', 'Modificación Exitosa...');
+        return $this->response->redirect(site_url('crear'));
     }
 
     // Eliminar lógicamente
