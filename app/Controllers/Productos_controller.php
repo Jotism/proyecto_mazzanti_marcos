@@ -161,10 +161,9 @@ class Productos_controller extends Controller
     public function eliminados()
     {
         $productoModel = new Productos_model();
-        $data['producto'] = $productoModel->getProductoAll();
-        $data['titulo'] = 'Crud_productos';
+        $data['productos'] = $productoModel->getProductoAll();
         
-        echo view('plantilla\Header', ['titulo' => 'Producto ' . $id]);
+        echo view('plantilla\Header', ['titulo' => 'Productos Eliminados']);
         echo view('productos/producto_eliminado', $data);
         echo view('plantilla\Footer');
     }
@@ -176,7 +175,7 @@ class Productos_controller extends Controller
         $data['eliminado'] = 'NO';
         $productoModel->update($id, $data);
         session()->setFlashdata('success', 'Activación Exitosa...');
-        return $this->response->redirect(site_url('crear'));
+        return $this->response->redirect(site_url('eliminados'));
     }
 }
 

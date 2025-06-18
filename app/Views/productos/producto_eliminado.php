@@ -1,9 +1,10 @@
 <br><br>
 <div class="container mt-5">
-    <h1 class="mb-4">Listado de Productos</h1>
+    <h1 class="mb-4">Listado de Productos Eliminados</h1>
+    
     <div class="d-flex justify-content-between">
         <a href="<?= base_url('/produ-form') ?>" class="btn btn-success mb-3">Agregar nuevo producto</a>
-        <a href="<?= base_url('/eliminados') ?>" class="btn btn-danger justify-content-end mb-3">Ir a productos inactivos</a>
+        <a href="<?= base_url('/crear') ?>" class="btn btn-primary justify-content-end mb-3">Ir a productos activos</a>
     </div>
     <?php if (isset($productos) && count($productos) > 0): ?>
         <table class="table table-bordered table-hover align-middle">
@@ -20,7 +21,7 @@
             </thead>
             <tbody>
                 <?php foreach ($productos as $prod): ?>
-                    <?php if ($prod['eliminado' ] != 'SI'): ?>
+                    <?php if ($prod['eliminado' ] == 'SI'): ?>
                         <tr class="text-center">>
                             <td><?= esc($prod['id']) ?></td>
                             <td><?= esc($prod['nombre_prod']) ?></td>
