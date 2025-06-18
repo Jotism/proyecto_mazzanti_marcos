@@ -18,15 +18,18 @@ class carrito_controller extends BaseController
 
     public function catalogo()  
     {  
-        $productoModel = new Producto_Model();  
-        $data['producto'] = $productoModel->orderBy('id', 'DESC')->findAll();  
+    $productoModel = new Producto_Model();  
+    $productos = $productoModel->orderBy('id', 'DESC')->findAll();  
 
-        $dato = ['titulo' => 'Todos los Productos'];  
-        echo view('front/head_view', $dato);  
-        echo view('front/nav_view');  
-        echo view('back/carrito/productos_catalogo_view', $data);  
-        echo view('front/footer_view');  
-    }  
+    $data = [
+        'producto' => $productos,
+        'titulo' => 'Todos los Productos'
+    ];
+
+    echo view('Catalogo', $data); 
+    }
+
+    
 
     public function muestra() //carrito que se muestra  
     {  
