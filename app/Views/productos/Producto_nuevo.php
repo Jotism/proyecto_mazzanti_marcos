@@ -46,7 +46,7 @@
                 <!-- Precio de costo -->
                 <div class="mb-2">
                     <label for="precio" class="form-label">Precio de Costo</label>
-                    <input class="form-control" type="text" name="precio" id="precio" value="<?= set_value('precio'); ?>">
+                    <input class="form-control" type="text" name="precio" id="precio" value="<?= set_value('precio'); ?>" placeholder="Precio del Producto" autofocus>
                     <?php if ($validation->getError('precio')): ?>
                         <div class="alert alert-danger mt-2"><?= $validation->getError('precio'); ?></div>
                     <?php endif; ?>
@@ -55,7 +55,7 @@
                 <!-- Precio de venta -->
                 <div class="mb-2">
                     <label for="precio_vta" class="form-label">Precio de Venta</label>
-                    <input class="form-control" type="text" name="precio_vta" id="precio_vta" value="<?= set_value('precio_vta'); ?>">
+                    <input class="form-control" type="text" name="precio_vta" id="precio_vta" value="<?= set_value('precio_vta'); ?> " placeholder="Precio de Venta" autofocus>
                     <?php if ($validation->getError('precio_vta')): ?>
                         <div class="alert alert-danger mt-2"><?= $validation->getError('precio_vta'); ?></div>
                     <?php endif; ?>
@@ -64,7 +64,7 @@
                 <!-- Stock -->
                 <div class="mb-2">
                     <label for="stock" class="form-label">Stock</label>
-                    <input class="form-control" type="text" name="stock" id="stock" value="<?= set_value('stock'); ?>">
+                    <input class="form-control" type="text" name="stock" id="stock" value="<?= set_value('stock'); ?>" placeholder="Cantidad en Stock" autofocus>
                     <?php if ($validation->getError('stock')): ?>
                         <div class="alert alert-danger mt-2"><?= $validation->getError('stock'); ?></div>
                     <?php endif; ?>
@@ -73,7 +73,7 @@
                 <!-- Stock mínimo -->
                 <div class="mb-2">
                     <label for="stock_min" class="form-label">Stock Mínimo</label>
-                    <input class="form-control" type="text" name="stock_min" id="stock_min" value="<?= set_value('stock_min'); ?>">
+                    <input class="form-control" type="text" name="stock_min" id="stock_min" value="<?= set_value('stock_min'); ?>" placeholder="Stock minimo" autofocus>
                     <?php if ($validation->getError('stock_min')): ?>
                         <div class="alert alert-danger mt-2"><?= $validation->getError('stock_min'); ?></div>
                     <?php endif; ?>
@@ -92,7 +92,7 @@
                 <div class="form-group">
                     <button type="submit" id="send_form" class="btn btn-success">Enviar</button>
                     <button type="reset" class="btn btn-danger">Cancelar</button>
-                    <a href="<?= base_url('crear'); ?>" class="btn btn-secondary">Volver</a>
+                    <a href="<?= base_url('/Catalogo'); ?>" class="btn btn-secondary">Volver</a>
                 </div>
             </div>
         </form> <!-- Fin del formulario -->

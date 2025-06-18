@@ -57,8 +57,8 @@ class Home extends BaseController
                 echo view('Carrito_parte_view');
                 break;
 
-            case "Alta producto":
-                echo view('productos\Alta_producto');
+            case "Ver producto":
+                echo view('productos\Ver_producto');
                 break;
             
             case "Nuevo producto":

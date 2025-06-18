@@ -37,7 +37,7 @@ class Productos_controller extends Controller
         $data['producto'] = $productoModel->getProductoAll();
 
         echo view('plantilla\Header', ['titulo' => 'Alta Producto']);
-        echo view('productos\Alta_producto', $data);
+        echo view('productos\Ver_producto', $data);
         echo view('plantilla\Footer');
     }
 
@@ -88,22 +88,22 @@ class Productos_controller extends Controller
             $id = $productoModel->insertarProducto($data);
             session()->setFlashdata('success', 'Alta Exitosa...');
             
-             return $this->response->redirect(site_url('/productos/producto_agregado/' . $id));
+             return $this->response->redirect(site_url('/productos/producto%' . $id));
         }
     }
 
-    public function producto_agregado($id)
+    public function ver_producto($id)
     {
         $productoModel = new \App\Models\Productos_model();
         $data['producto'] = $productoModel->obtenerProductoPorId($id);
-        $categoriaModel = new \App\Models\Categorias_model();
-        $data['categoria'] = $categoriaModel->obtenerCategoriaPorId($data['producto']['categoria_id']);
-
         if (!$data['producto']) {
             show_error("No se encontró el producto.");
         }
-        echo view('plantilla\Header', ['titulo' => 'Nuevo Producto']);  
-        echo view('productos\Alta_producto', $data);
+        $categoriaModel = new \App\Models\Categorias_model();
+        $data['categoria'] = $categoriaModel->obtenerCategoriaPorId($data['producto']['categoria_id']);
+
+        echo view('plantilla\Header', ['titulo' => 'Producto ' . $id]);
+        echo view('productos\Ver_producto', $data);
         echo view('plantilla\Footer');
     }
 

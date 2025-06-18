@@ -1,4 +1,4 @@
- <script src="assets/js/bootstrap.bundle.min.js" ></script>
+ <script src=<?= base_url('assets/js/bootstrap.bundle.min.js') ?>></script>
  </br>
  </br>
   </body>
@@ -23,7 +23,7 @@
       </div>
 
       <div class="col columnas-footer">
-        <img src="assets/img/logo-xport-blanco.png" class="img-logo-footer">
+        <img src="<?= base_url('assets/img/logo-xport-blanco.png') ?>" class="img-logo-footer">
       </div>
     </div>
   </div>
