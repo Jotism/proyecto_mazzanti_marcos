@@ -20,9 +20,17 @@ class Productos_model extends Model
                                
     public function getProductoAll()
     {
-        return $this
-            ->select('productos.*, categorias.nombre as categoria_nombre')
-            ->join('categorias', 'categorias.id = productos.categoria_id')
-            ->findAll();
+        return $this->findAll();
+    }
+
+    public function insertarProducto($data)
+    {
+        $this->insert($data);
+        return $this->getInsertID(); // ✅ devuelve el ID insertado
+    }
+
+    public function obtenerProductoPorId($id)
+    {
+        return $this->find($id);
     }
 }

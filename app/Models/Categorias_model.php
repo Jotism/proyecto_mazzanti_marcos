@@ -15,4 +15,9 @@ class Categorias_model extends Model
     {
         return $this->findAll();
     }
+
+    public function obtenerCategoriaPorId($id)
+    {
+        return $this->find($id);
+    }
 }

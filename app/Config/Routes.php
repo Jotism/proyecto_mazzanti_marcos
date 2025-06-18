@@ -28,6 +28,7 @@ $routes->get('/logout', 'Usuarios_controller::logout');
 $routes->get('/Producto_nuevo', 'Productos_controller::index');
 $routes->post('/enviar-prod', 'Productos_controller::store');
 $routes->get('/Alta_producto', 'Home::index/Alta producto');
+$routes->get('productos/producto_agregado/(:num)', 'Productos_controller::producto_agregado/$1');
 
 
 //Rutas para el carrito*/

@@ -12,14 +12,14 @@ if (session_status() === PHP_SESSION_NONE) {
     <div class="Titulo">
     <title>Xport | <?php echo $titulo?></title>
     </div>
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/miestilo.css" rel="stylesheet" >
+    <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/miestilo.css') ?>">
   </head>
   <body class="bg-primary">
 
     <nav class="navbar navbar-expand-lg bg-secondary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/proyecto_mazzanti_marcos"><img src="assets/img/logo-xport-blanco.png" class="img-logo-menu"></a>
+        <a class="navbar-brand" href="/proyecto_mazzanti_marcos"><img src="<?= base_url('assets/img/logo-xport-blanco.png') ?>" class="img-logo-menu"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
