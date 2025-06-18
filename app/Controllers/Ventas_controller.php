@@ -6,7 +6,7 @@ Use App\Models\Usuarios_model;
 Use App\Models\Ventas_cabecera_model;
 Use App\Models\Ventas_detalle_model;
 
-class Ventascontroller extends Controller{
+class Ventas_controller extends Controller{
 
     public function registrar_venta()
     {
