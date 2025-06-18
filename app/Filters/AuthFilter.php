@@ -15,6 +15,10 @@ class AuthFilter implements FilterInterface
         if (! $session->has('usuario')) {
             return redirect()->to('/login');
         }
+
+        if (session('perfil_id') != 1){
+            return redirect()->to('/');
+        }
     }
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)

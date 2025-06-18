@@ -18,10 +18,10 @@ class Productos_controller extends Controller
     // mostrar los productos en lista
     public function index(){
         $productoModel = new Productos_model();
-        $categoriaModel = new Categorias_model(); // Agregado
+        $categoriaModel = new Categorias_model();
 
         $data['productos'] = $productoModel->getProductoAll();
-        $data['categorias'] = $categoriaModel->getCategorias(); // Agregado
+        $data['categorias'] = $categoriaModel->getCategorias();
 
         echo view('plantilla\Header', ['titulo' => 'Vista Productos']);
         echo view('productos\Vista_productos', $data);

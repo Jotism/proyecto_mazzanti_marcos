@@ -2,6 +2,9 @@
 
 namespace App\Controllers;
 
+use App\Models\Productos_model;
+use App\Models\Categorias_model;
+
 class Home extends BaseController
 {
     public function index($cuerpo = "Principal")
@@ -38,7 +41,12 @@ class Home extends BaseController
                 break;
 
             case "Catalogo":
-                echo view('Catalogo');
+                $productoModel = new Productos_model();
+                $categoriaModel = new Categorias_model();
+
+                $data['productos'] = $productoModel->getProductoAll();
+                $data['categorias'] = $categoriaModel->getCategorias();
+                echo view('Catalogo', $data);
                 break;
 
             case "Consultas":
@@ -55,10 +63,6 @@ class Home extends BaseController
 
             case "Carrito_parte_view":
                 echo view('Carrito_parte_view');
-                break;
-
-            case "Ver producto":
-                echo view('productos\Ver_producto');
                 break;
             
             case "Nuevo producto":
