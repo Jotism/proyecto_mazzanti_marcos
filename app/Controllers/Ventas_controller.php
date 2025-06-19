@@ -102,4 +102,20 @@ class Ventas_controller extends Controller{
         echo view('compras/ver_factura_usuario', $data);
         echo view('plantilla\Footer');
     }
+
+    public function ventas(){
+        $venta_id = $this->request->getGet('id');
+        //echo $venta_id;die;
+
+        $detalle_ventas = new Ventas_detalle_model();
+        $data['venta'] = $detalle_ventas->getDetalles($venta_id);
+
+        $ventascabecera = new Ventas_cabecera_model();
+        $data['usuarios'] = $ventascabecera->getBuilderVentas_cabecera();
+
+        $dato['titulo'] = "ventas";
+        echo view('plantilla\Header', $dato);
+        echo view('ventas/ventas', $data);
+        echo view('plantilla\Footer');
+    }
 }

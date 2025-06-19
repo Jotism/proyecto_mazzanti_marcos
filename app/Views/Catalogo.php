@@ -30,6 +30,7 @@
                                                 <?= form_hidden('id', $row['id']); ?>
                                                 <?= form_hidden('precio_vta', $row['precio_vta']); ?>
                                                 <?= form_hidden('nombre_prod', $row['nombre_prod']); ?>
+                                                <?= form_hidden('imagen', $row['imagen']); ?>
 
                                                 <?php
                                                 $btn = array(

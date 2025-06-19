@@ -3,7 +3,7 @@
         'name' => 'joaq2/proyecto_mazzanti_marcos',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '67c90405896195139f807ba7d29967574a3fdb47',
+        'reference' => '1cfa454ae6464b3184bde3df768c27e0f08fe367',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -31,7 +31,7 @@
         'joaq2/proyecto_mazzanti_marcos' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '67c90405896195139f807ba7d29967574a3fdb47',
+            'reference' => '1cfa454ae6464b3184bde3df768c27e0f08fe367',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

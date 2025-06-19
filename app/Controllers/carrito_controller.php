@@ -6,7 +6,6 @@ use App\Models\Usuarios_model;
 use App\Models\Producto_Model;
 use App\Models\Ventas_cabecera_model;
 use App\Models\Ventas_detalle_model;
-use App\Cart;
 
 class carrito_controller extends BaseController  
 {  
@@ -53,7 +52,7 @@ class carrito_controller extends BaseController
             'qty'   => 1,  
             'name'  => $request->getPost('nombre_prod'),  
             'price' => $request->getPost('precio_vta'),  
-            'imagen'=> $request->getPost('imagen'),  
+            'imagen' => $request->getPost('imagen')
         ]);  
 
         return redirect()->back()->withInput();  

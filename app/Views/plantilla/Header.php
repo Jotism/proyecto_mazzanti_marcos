@@ -25,11 +25,11 @@ if (session_status() === PHP_SESSION_NONE) {
           </button>
 
             <?php if(session('perfil_id') == 1): ?>
-                <div class="btn btn-info active btnUser btn-sm">
+                <div class="btn btn-danger active btnUser btn-sm">
                   <a href="">USUARIO: <?php echo session('nombre'); ?></a>
                 </div>
             <?php elseif (session('perfil_id') == 2): ?>
-                <div class="btn btn-info active btnUser btn-sm ms-2">
+                <div class="btn btn-danger active btnUser btn-sm ms-2">
                   <a href="">CLIENTE: <?= session('nombre'); ?></a>
                 </div>
             <?php endif; ?>
@@ -47,7 +47,7 @@ if (session_status() === PHP_SESSION_NONE) {
                       <a class="nav-link text-light txt-menu" href="<?= base_url('/crear') ?>">CrudProductos</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/Terminos-Y-Uso">Muestra Ventas</a>
+                      <a class="nav-link text-light txt-menu" href="<?= base_url('/ventas') ?>">Muestra Ventas</a>
                     </li>
                   <?php else: ?>
                     <li class="nav-item">
