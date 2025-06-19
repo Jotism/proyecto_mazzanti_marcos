@@ -18,7 +18,7 @@ class Consultas_controller extends Controller
         $dato['titulo']= 'Gestion-Consultas';
         // carga la vista
         echo view('plantilla\Header', $dato);
-        echo view('consulta\Consultas', $data);
+        echo view('consultas\Consultas', $data);
         echo view('plantilla\Footer');
     }
 

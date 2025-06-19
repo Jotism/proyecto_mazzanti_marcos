@@ -1,4 +1,3 @@
-
 <div class="container mt-5">
     <h2 class="text-center">Enviar consulta</h2>
     <form action="<?= base_url('guardar_consulta') ?>" method="post">

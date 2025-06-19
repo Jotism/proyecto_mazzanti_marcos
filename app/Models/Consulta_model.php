@@ -9,8 +9,16 @@ class Consulta_model extends Model
     protected $allowedFields = ['nombre', 'apellido', 'email', 'telefono', 'respuesta', 'mensaje'];
 
     public function obtenerConsultasPorEmail($email){
-        
     return $this->where('email', $email)->findAll();
-    }  
+    } 
+
+    public function getConsultas() {
+        return $this->findAll();
+    }
+
+    public function getConsulta($id) {
+    return $this->find($id);
+    }
+
 
 }

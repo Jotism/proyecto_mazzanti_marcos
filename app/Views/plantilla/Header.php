@@ -49,6 +49,9 @@ if (session_status() === PHP_SESSION_NONE) {
                     <li class="nav-item">
                       <a class="nav-link text-light txt-menu" href="<?= base_url('/ventas') ?>">Muestra Ventas</a>
                     </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-light txt-menu" href="<?= base_url('/listar_consultas') ?>">Gestión Consultas</a>
+                    </li>
                   <?php else: ?>
                     <li class="nav-item">
                     <a class="nav-link active text-light txt-menu" aria-current="page" href="/proyecto_mazzanti_marcos">Inicio</a>
