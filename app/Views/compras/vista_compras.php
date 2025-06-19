@@ -49,8 +49,8 @@ if (empty($venta)) { ?>
                         <td><?= $row['nombre_prod'] ?></td>
                         <td><img width="100" height="65" src="<?= base_url('assets/uploads/' . $imagen) ?>"></td>
                         <td><?= number_format($row['cantidad']) ?></td>
-                        <td>$<?= number_format($row['precio_venta'], 2) ?></td>
-                        <?php $subtotal = ($row['precio_venta'] * $row['cantidad']); ?>
+                        <td>$<?= number_format($row['precio_vta'], 2) ?></td>
+                        <?php $subtotal = ($row['precio_vta'] * $row['cantidad']); ?>
                         <td>$<?= number_format($subtotal, 2) ?></td>
                     </tr>
                     <?php

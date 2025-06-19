@@ -11,11 +11,11 @@ class Ventas_detalle_model extends Model{
         $db = \Config\Database::connect();
         $builder = $db->table('ventas_detalle');
         $builder->select('*');
-        $builder->join('ventas_cabecera', 'ventas_cabecera.id = ventas_detalle.venta_id');
+        $builder->join('ventas_cabecera', 'ventas_cabecera.id_venta = ventas_detalle.venta_id');
         $builder->join('productos', 'productos.id = ventas_detalle.producto_id');
         $builder->join('usuarios', 'usuarios.id = ventas_cabecera.usuario_id');
         if($id != null){
-            $builder->where('ventas_cabecera.id', $id);
+            $builder->where('ventas_cabecera.id_venta', $id);
         }
 
         $query = $builder->get();

@@ -6,7 +6,7 @@ use App\Models\Usuarios_model;
 use App\Models\Producto_Model;
 use App\Models\Ventas_cabecera_model;
 use App\Models\Ventas_detalle_model;
-use JasonNapolitano\Cart\Cart;
+use App\Cart;
 
 class carrito_controller extends BaseController  
 {  

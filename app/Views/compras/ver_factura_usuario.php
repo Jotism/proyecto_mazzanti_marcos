@@ -34,9 +34,9 @@
                                 <td><?= $row['usuario'] ?></td>
                                 <td><?= $row['total_venta'] ?></td>
                                 <td><?= $row['fecha'] ?></td>
-                                <td><?= $row['id'] ?></td>
+                                <td><?= $row['id_venta'] ?></td>
                                 <td>
-                                    <a href="<?= base_url('vista_compras/' . $row['id']) ?>" class="btn btn-success btn-sm">Ver Detalle</a>
+                                    <a href="<?= base_url('vista_compras/' . $row['id_venta']) ?>" class="btn btn-success btn-sm">Ver Detalle</a>
                                 </td>
                             </tr>
                     <?php }

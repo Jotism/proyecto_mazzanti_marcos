@@ -71,7 +71,9 @@ class FileHandler extends BaseHandler
 
         if (! empty($this->savePath)) {
             $this->savePath = rtrim($this->savePath, '/\\');
-            ini_set('session.save_path', $this->savePath);
+            if (session_status() === PHP_SESSION_NONE) {
+                ini_set('session.save_path', $this->savePath);
+            }
         } else {
             $sessionPath = rtrim(ini_get('session.save_path'), '/\\');
 
@@ -319,7 +321,7 @@ class FileHandler extends BaseHandler
         $sidLength        = (int) ini_get('session.sid_length');
 
         // We force the PHP defaults.
-        if (PHP_VERSION_ID < 90000) {
+        if (PHP_VERSION_ID < 9000 && session_status() === PHP_SESSION_NONE) {
             if ($bitsPerCharacter !== 4) {
                 ini_set('session.sid_bits_per_character', '4');
             }
