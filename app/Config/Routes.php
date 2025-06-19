@@ -76,3 +76,7 @@ $routes->post('guardar_consulta', 'Consultas_controller::guardar_consulta');
 //Vista para el cliente de consultas
 $routes->get('Consultas-Cliente', 'Consultas_controller::vista_consulta_cliente');
 
+//gestión de consultas
+$routes->get('listar_consultas', 'Consultas_controller::listar_consultas');
+$routes->get('atender_consulta/(:segment)', 'Consultas_controller::atender_consulta/$1');
+$routes->get('eliminar_consulta/(:segment)', 'Consultas_controller::eliminar_consulta/$1');

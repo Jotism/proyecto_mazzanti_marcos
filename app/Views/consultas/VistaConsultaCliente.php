@@ -1,11 +1,3 @@
-<?php
-$email = session()->get('email');
-echo 'Email desde sesión: ' . esc($email);
-?>
-
-<p>Email en sesión: <?= session('email') ?></p>
-<p>id sesion: <?= session('nombre') ?></p>
-
 
 <div class="container mt-5">
     <h2 class="text-center">Enviar consulta</h2>
@@ -19,6 +11,7 @@ echo 'Email desde sesión: ' . esc($email);
             <input type="text" name="apellido" class="form-control" required>
         </div>
 
+        <input type="hidden" name="email" value="<?= esc($email) ?>">
         <input type="hidden" name="email" value="<?= esc($email) ?>">
         
         <div class="form-group">
@@ -45,8 +38,9 @@ echo 'Email desde sesión: ' . esc($email);
             <tr>
                 <td><?= esc($consulta['mensaje']) ?></td>
                 <td>
-                    <?php if (!empty(trim($consulta['respuesta']))): ?>
+                    <?php if (trim($consulta['respuesta']) !== 'NO'): ?>
                         ✅ Respondida
+                        <p><strong>Respuesta:</strong> <?= esc($consulta['respuesta']) ?></p>
                     <?php else: ?>
                         ⏳ En espera
                     <?php endif; ?>
