@@ -7,8 +7,9 @@ use CodeIgniter\Controller;
 class Consultas_controller extends Controller
 {
     public function __construct() {
-        helper(['url', 'form']);
+    helper(['url', 'form']); 
     }
+
 
     public function listar_consultas(){
         // instancio el modelo de consultas
@@ -17,9 +18,10 @@ class Consultas_controller extends Controller
         $data['consultas'] = $consultas->getConsultas();
         $dato['titulo']= 'Gestion-Consultas';
         // carga la vista
-        echo view('plantilla\Header', $dato);
-        echo view('consultas\Consultas', $data);
-        echo view('plantilla\Footer');
+        echo view('plantilla/Header', $dato);
+        echo view('consultas/Consultas', $data);
+        echo view('plantilla/Footer');
+
     }
 
     public function atender_consulta($id = null){
@@ -89,6 +91,17 @@ class Consultas_controller extends Controller
         echo view('consultas/VistaConsultaCliente', $data);
         echo view('plantilla/Footer');
     }
+
+    public function responder_consulta() {
+        $id = $this->request->getPost('id_consulta');
+        $respuesta = $this->request->getPost('respuesta');
+
+        $model = new Consulta_model();
+        $model->update($id, ['respuesta' => $respuesta]);
+
+        return redirect()->to(base_url('listar_consultas'))->with('mensaje', 'Consulta respondida correctamente.');
+    }
+
 
 
 }

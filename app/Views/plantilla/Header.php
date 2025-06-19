@@ -1,8 +1,4 @@
-<?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-?>
+
 
 <!doctype html>
 <html lang="en">
@@ -44,13 +40,13 @@ if (session_status() === PHP_SESSION_NONE) {
                       <a class="nav-link text-light txt-menu" href="<?= base_url('/users-list') ?>">CrudUsuarios</a>
                     </li>
                     <li class="nav-item">
+                      <a class="nav-link text-light txt-menu" href="<?= base_url('/listar_consultas') ?>">Gestión Consultas</a>
+                    </li>
+                    <li class="nav-item">
                       <a class="nav-link text-light txt-menu" href="<?= base_url('/crear') ?>">CrudProductos</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link text-light txt-menu" href="<?= base_url('/ventas') ?>">Muestra Ventas</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link text-light txt-menu" href="<?= base_url('/listar_consultas') ?>">Gestión Consultas</a>
                     </li>
                   <?php else: ?>
                     <li class="nav-item">

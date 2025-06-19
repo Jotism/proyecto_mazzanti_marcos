@@ -80,3 +80,5 @@ $routes->get('Consultas-Cliente', 'Consultas_controller::vista_consulta_cliente'
 $routes->get('listar_consultas', 'Consultas_controller::listar_consultas');
 $routes->get('atender_consulta/(:segment)', 'Consultas_controller::atender_consulta/$1');
 $routes->get('eliminar_consulta/(:segment)', 'Consultas_controller::eliminar_consulta/$1');
+$routes->post('responder_consulta', 'Consultas_controller::responder_consulta');
+
