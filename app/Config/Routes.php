@@ -70,3 +70,9 @@ $routes->get('ver_factura_usuario/(:num)', 'Ventas_controller::ver_facturas_usua
 // Las ventas que ve el admin
 $routes->get('/ventas', 'Ventas_controller::ventas');
 
+//Consultas del cliente
+$routes->post('guardar_consulta', 'Consultas_controller::guardar_consulta');
+
+//Vista para el cliente de consultas
+$routes->get('Consultas-Cliente', 'Consultas_controller::vista_consulta_cliente');
+

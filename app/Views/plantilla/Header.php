@@ -71,6 +71,9 @@ if (session_status() === PHP_SESSION_NONE) {
                   <li class="nav-item">
                     <a class="nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/muestra">Carrito</a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/Consultas-Cliente">consultas2</a>
+                  </li>
                   <?php endif; ?>
 
                   <?php if (isset($_SESSION['usuario'])): ?>

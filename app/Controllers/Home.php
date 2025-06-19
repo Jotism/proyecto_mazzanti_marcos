@@ -68,7 +68,7 @@ class Home extends BaseController
             case "Nuevo producto":
                 echo view('productos\Producto_nuevo');
                 break;
-
+                
         }
     }
 }
