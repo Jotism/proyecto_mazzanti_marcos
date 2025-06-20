@@ -405,4 +405,14 @@
 	.link-footer{
 		font-size: small;
 	}
+
+	.wrapper {
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.wrapper > .contenido-principal {
+		flex: 1;
+	}
   }
