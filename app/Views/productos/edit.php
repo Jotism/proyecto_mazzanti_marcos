@@ -1,22 +1,15 @@
+<br>
 <div class="container mt-1 mb-1 d-flex justify-content-center">
     <div class="card" style="width:75%;">
         <div class="card-header text-center">
             <h2>Modificar Productos</h2>
         </div>
 
-        <!-- Validación -->
-        <?php if (!empty(session()->getFlashdata('fail'))): ?>
-            <div class="alert alert-danger"><?= session()->getFlashdata('fail'); ?></div>
-        <?php endif; ?>
-
-        <?php if (!empty(session()->getFlashdata('success'))): ?>
-            <div class="alert alert-success"><?= session()->getFlashdata('success'); ?></div>
-        <?php endif; ?>
-
         <?php $validation = \Config\Services::validation(); ?>
 
         <!-- Inicio del formulario -->
-        <form action="<?= base_url('modifica/' . $producto['id']); ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= base_url('modifica/' . $producto['id']) ?>" method="post" enctype="multipart/form-data">
+            
             <div class="card-body" media="(max-width:568px)">
 
                 <!-- Nombre del producto -->
