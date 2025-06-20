@@ -25,30 +25,39 @@
     </form>
 </div>
 
-<h3>Mis consultas previas</h3>
+<h3 class="text-center mt-4">Mis consultas previas</h3>
 
 <?php if (!empty($consultas)): ?>
-    <table border="1" cellpadding="8" cellspacing="0">
-        <tr>
-            <th>Mensaje</th>
-            <th>Estado</th>
-        </tr>
-        <?php foreach ($consultas as $consulta): ?>
-            <tr>
-                <td><?= esc($consulta['mensaje']) ?></td>
-                <td>
-                    <?php if (trim($consulta['respuesta']) !== 'NO'): ?>
-                        ✅ Respondida
-                        <p><strong>Respuesta:</strong> <?= esc($consulta['respuesta']) ?></p>
-                    <?php else: ?>
-                        ⏳ En espera
-                    <?php endif; ?>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-    </table>
+    <div class="d-flex justify-content-center mt-4">
+        <div class="table-responsive" style="max-width: 900px;">
+            <table class="table table-bordered table-striped shadow-sm rounded">
+                <thead class="thead-dark">
+                    <tr class="text-center bg-primary text-white">
+                        <th>Mensaje</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($consultas as $consulta): ?>
+                        <tr>
+                            <td style="white-space: normal;"><?= esc($consulta['mensaje']) ?></td>
+                            <td style="white-space: normal; word-wrap: break-word; overflow-wrap: anywhere; max-width: 300px;">
+                            <?php if (trim($consulta['respuesta']) !== 'NO'): ?>
+                                <span class="badge bg-success">Respondida</span>
+                                <p class="mt-2"><strong>Respuesta:</strong> <?= esc($consulta['respuesta']) ?></p>
+                            <?php else: ?>
+                                <span class="badge bg-warning text-dark">En espera</span>
+                            <?php endif; ?>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
 <?php else: ?>
-    <p>No realizaste consultas aún.</p>
+    <p class="text-center mt-4">No realizaste consultas aún.</p>
 <?php endif; ?>
+
 
 
