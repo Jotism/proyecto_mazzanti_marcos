@@ -1,4 +1,5 @@
 <div class="container mt-4">
+    <h1 class="mb-4 text-center">Catalago</h1>
 
     <!-- Filtro por marca -->
     <form method="get" action="<?= base_url('catalogo-filtrado') ?>" class="mb-4">

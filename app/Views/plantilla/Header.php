@@ -71,7 +71,7 @@
                     <a class="nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/muestra">Carrito</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/Consultas-Cliente">consultas2</a>
+                    <a class="nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/Consultas-Cliente">Consultas</a>
                   </li>
                   <?php endif; ?>
 

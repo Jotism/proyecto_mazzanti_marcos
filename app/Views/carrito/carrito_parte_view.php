@@ -1,7 +1,9 @@
+<br><br>
 <div class="container-fluid" id="carrito">
     <div class="cart">
         <div class="heading">
         <h2 class="text-center">Productos en tu Carrito</h2>
+        <br>
         </div>
         <!-- Mostrar mensaje Flash si existe -->
         <?php if (session()->getFlashdata('mensaje')): ?>
@@ -15,10 +17,12 @@
 
     <div class="text-center">
     <?php if (empty($cart)): ?>
+        <br>
         <p>Para agregar productos al carrito, hacé clic en:</p>
         <a class="btn btn-warning text-dark mt-2" href="<?= base_url('/Catalogo') ?>">
         <i class="fa-solid fa-circle-chevron-left"></i> Volver al catálogo
         </a>
+        <br><br><br><br><br><br><br><br>
     <?php endif; ?>
     </div>
     
@@ -72,13 +76,14 @@
         <tr class="table-light">
             <td colspan="4"><strong>Total: $ <?= number_format($gran_total, 2) ?></strong></td>
             <td colspan="2" class="text-end">
-                <input type="button" class="btn btn-primary btn-lg" value="Borrar Carrito" onclick="window.location='<?= base_url('borrar') ?>'">
-                <input type="button" class="btn btn-secondary btn-lg" value="Comprar" onclick="window.location='<?= base_url('carrito-comprar') ?>'">
+                <input type="button" class="btn btn-danger btn-lg" value="Borrar Carrito" onclick="window.location='<?= base_url('borrar') ?>'">
+                <input type="button" class="btn btn-success btn-lg" value="Comprar" onclick="window.location='<?= base_url('carrito-comprar') ?>'">
             </td>
         </tr>
         </tbody>
     </table>
     </form>
+    <br><br>
     <?php endif; ?>
 </div>
 <br>

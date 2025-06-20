@@ -1,4 +1,4 @@
-<br><br>
+<br>
 <div class="container mt-5">
     <h1 class="mb-4">Listado de Productos Eliminados</h1>
     
@@ -22,7 +22,7 @@
             <tbody>
                 <?php foreach ($productos as $prod): ?>
                     <?php if ($prod['eliminado' ] == 'SI'): ?>
-                        <tr class="text-center">>
+                        <tr class="text-center">
                             <td><?= esc($prod['id']) ?></td>
                             <td><?= esc($prod['nombre_prod']) ?></td>
                             <td>$<?= esc($prod['precio']) ?></td>

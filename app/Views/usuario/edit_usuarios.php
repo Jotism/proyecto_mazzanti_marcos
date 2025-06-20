@@ -1,9 +1,12 @@
 <div class="container mt-1 mb-0">
+    <br>
     <div class="card mx-auto" style="width: 50%;">
         <div class="card-header text-center">
+            <br>
             <h4>Modificación Usuarios</h4>
+            <br>
         </div>
-        
+        <div class="card-body p-4">
         <form method="post" id="update_user" name="update_user" action="<?= site_url('modifica-user'); ?>">
             <!-- ID oculto -->
             <input type="hidden" name="id" id="id" value="<?= $user_obj['id']; ?>">
@@ -51,6 +54,7 @@
                 <a href="<?= base_url('users-list') ?>" class="btn btn-secondary">volver</a>
             </div>
         </form>
+        </div>
     </div>
 </div>
 

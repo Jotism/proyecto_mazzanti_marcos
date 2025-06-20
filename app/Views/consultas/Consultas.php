@@ -1,5 +1,6 @@
 <?php if (empty($consultas)) { ?>
     <!-- avisamos que no hay consultas -->
+    <br><br><br><br>
     <div class="container">
         <div class="alert alert-dark text-center" role="alert">
             <h4 class="alert-heading">No hay consultas por atender</h4>
@@ -8,6 +9,7 @@
             <p class="mb-0">Por favor, regrese más tarde.</p>
         </div>
     </div>
+    <br><br><br><br><br>
 <?php } else { ?>
     <div class="container mt-4">
         <h2 class="text-center mb-4">Consultas</h2>

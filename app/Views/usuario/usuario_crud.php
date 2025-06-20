@@ -1,4 +1,5 @@
 <div class="container mt-1 mb-0">
+    <br>
     <div class="card mx-auto" style="width: 50%;">
         <div class="card-header text-center">
             <h5>Alta de Usuario</h5>
@@ -67,7 +68,7 @@
                 <!-- Campo Password -->
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Password</label>
-                    <input name="pass" type="text" class="form-control" placeholder="password">
+                    <input name="pass" type="text" class="form-control" placeholder="contraseña">
                     <?php if ($validation->getError('pass')) : ?>
                         <div class="alert alert-danger mt-2">
                             <?= $validation->getError('pass'); ?>

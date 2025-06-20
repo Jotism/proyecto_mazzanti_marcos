@@ -1,4 +1,5 @@
 <div class="container mt-4">
+  <h1 class="mb-4">Listado de Usuarios</h1>
   <div class="d-flex justify-content-end">
     <a href="<?php echo site_url('/user-form') ?>" class="btn btn-success mb-2">Agregar Usuarios</a>
   </div>
@@ -11,7 +12,7 @@
 
   <div class="mt-2">
     <table class="table table-bordered table-secondary table-hover" id="users-list">
-      <thead class="table-dark text-center">>
+      <thead class="table-dark text-center">
         <tr>
           <th>Id</th>
           <th>Nombre</th>
@@ -30,7 +31,7 @@
               <td><?php echo $user['email']; ?></td>
               <td class="text-center"><?php echo $user['perfil_id']; ?></td>
               <td class="text-center"><?php echo $user['baja']; ?></td>
-              <td class="auto-aling">
+              <td class="d-flex justify-content-between">
                 <a href="<?php echo base_url('editar-user/'.$user['id']); ?>" class="btn btn-primary btn-sm">Editar</a>
                 <a href="<?php echo base_url('deleteLogico/'.$user['id']); ?>" class="btn btn-danger btn-sm">Borrar</a>
                 <a href="<?php echo base_url('activar/'.$user['id']); ?>" class="btn btn-secondary btn-sm">Activar</a>

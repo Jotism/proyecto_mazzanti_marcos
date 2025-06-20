@@ -1,3 +1,4 @@
+<br><br><br>
 <?php
 $session = session();
 if (empty($venta)) { ?>
@@ -66,9 +67,10 @@ if (empty($venta)) { ?>
         </div>
     </div>
 </div>
-
+<br><br><br>
 <div class="row">
     <div class="col-xl-12 col-xs-12 text-center">
-        <div class="h5 text-warning">Gracias por su compra</div>
+        <div class="h2 text-danger">Gracias por su compra</div>
     </div>
 </div>
+<br><br>

@@ -1,7 +1,8 @@
+<br>
 <?php
 $session=session();
 if (empty($venta)) { ?>
-    <div class="container">
+    <div class="container mt-5">
         <div class="alert alert-dark text-center" role="alert">
             <h4 class="alert-heading">No posee ventas registradas</h4>
             <hr>
@@ -10,10 +11,10 @@ if (empty($venta)) { ?>
     </div>
 <?php } ?>
 <div class="row container-fluid">
-    <div class="table-responsive-sm text-center">
+    <div class="table-responsive-sm text-center table-bordered table-hover align-middle">
         <h1 class="text-center">DETALLE DE VENTAS</h1>
         <table class="table table-secondary table-striped rounded" id="users-list">
-            <thead class="thead-dark">
+            <thead class="table-dark text-center">
                 <tr class="text-center">
                     <th>ORDEN</th>
                     <th>USUARIO</th>
@@ -30,7 +31,7 @@ if (empty($venta)) { ?>
                     foreach ($venta as $row) {
                         $imagen = $row['imagen'];
                         $i++;
-                        $total = $row['precio']; ?>
+                        $total += $row['precio']; ?>
                         <tr class="text-center">
                             <td><?php echo $i ?></td>
                             <td><?php echo $row['nombre']; ?></td>

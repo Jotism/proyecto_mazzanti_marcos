@@ -1,4 +1,4 @@
-<br><br>
+<br>
 <div class="container mt-5">
     <h1 class="mb-4">Listado de Productos</h1>
     <div class="d-flex justify-content-between">
@@ -21,7 +21,7 @@
             <tbody>
                 <?php foreach ($productos as $prod): ?>
                     <?php if ($prod['eliminado' ] != 'SI'): ?>
-                        <tr class="text-center">>
+                        <tr class="text-center">
                             <td><?= esc($prod['id']) ?></td>
                             <td><?= esc($prod['nombre_prod']) ?></td>
                             <td>$<?= esc($prod['precio']) ?></td>
@@ -57,14 +57,3 @@
         <div class="alert alert-info">No hay productos cargados.</div>
     <?php endif; ?>
 </div>
-
-<!-- Scripts de jQuery y DataTables -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css"/>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-
-<script>
-  $(document).ready(function () {
-    $('#crear').DataTable();
-  });
-</script>
