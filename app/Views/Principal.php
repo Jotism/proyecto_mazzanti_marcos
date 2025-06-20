@@ -50,10 +50,10 @@
     <br><br>
     <div class="text-center">
       <a href="/proyecto_mazzanti_marcos/Catalogo"><img src="assets/img/logo-bugatti.png" class="img-boton-principal"></a>
-      <a href="/proyecto_mazzanti_marcos/Catalogo"><img src="assets/img/logo-mclaren.png" class="img-boton-principal"></a>
-      <a href="/proyecto_mazzanti_marcos/Catalogo"><img src="assets/img/logo-ferrari.png" class="img-boton-principal"></a>
+      <a href="/proyecto_mazzanti_marcos/catalogo-filtrado?categoria=1"><img src="assets/img/logo-mclaren.png" class="img-boton-principal"></a>
+      <a href="/proyecto_mazzanti_marcos/catalogo-filtrado?categoria=2"><img src="assets/img/logo-ferrari.png" class="img-boton-principal"></a>
       <a href="/proyecto_mazzanti_marcos/Catalogo"><img src="assets/img/logo-astonmartin.png" class="img-boton-principal"></a>
-      <a href="/proyecto_mazzanti_marcos/Catalogo"><img src="assets/img/logo-maserati.png" class="img-boton-principal"></a>
+      <a href="/proyecto_mazzanti_marcos/catalogo-filtrado?categoria=3"><img src="assets/img/logo-maserati.png" class="img-boton-principal"></a>
     </div>
     <br>
     <div class="marcas bg-secondary">
