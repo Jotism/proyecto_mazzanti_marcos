@@ -28,6 +28,20 @@ class Productos_controller extends Controller
         echo view('plantilla\Footer');
     }
 
+    public function mostrarCatalogo() {
+        $productoModel = new Productos_model();
+        $categoriaModel = new Categorias_model();
+
+        $data['productos'] = $productoModel->getProductoAll();
+        $data['categorias'] = $categoriaModel->getCategorias();
+        $data['categoriaSeleccionada'] = ''; // Para evitar el error
+
+        echo view('plantilla/Header', ['titulo' => 'Catálogo']);
+        echo view('Catalogo', $data);
+        echo view('plantilla/Footer');
+    }
+
+
     public function creaproducto()
     {
         $categoriasmodel = new Categorias_model();
@@ -106,6 +120,8 @@ class Productos_controller extends Controller
         $categoriasM = new Categorias_model();
         $data['categorias'] = $categoriasM->getCategorias(); // traigo categorías
 
+        $data['producto']['id'] = $id;
+
         echo view('plantilla\Header', ['titulo' => 'Producto ' . $id]);
         echo view('productos\edit', $data);
         echo view('plantilla\Footer');
@@ -177,5 +193,51 @@ class Productos_controller extends Controller
         session()->setFlashdata('success', 'Activación Exitosa...');
         return $this->response->redirect(site_url('eliminados'));
     }
+
+    public function catalogo_filtrado(){
+        $productoModel = new Productos_model();
+        $categoriaModel = new Categorias_model();
+
+        $categoria_id = $this->request->getGet('categoria');
+
+        if ($categoria_id) {
+            $data['productos'] = $productoModel->getProductosPorCategoria($categoria_id);
+            $data['categoriaSeleccionada'] = $categoria_id;
+        } else {
+            $data['productos'] = $productoModel->getProductoAll();
+            $data['categoriaSeleccionada'] = '';
+        }
+
+        $data['categorias'] = $categoriaModel->getCategorias();
+
+        echo view('plantilla/Header', ['titulo' => 'Catálogo Filtrado']);
+        echo view('Catalogo', $data);
+        echo view('plantilla/Footer');
+    }
+
+    public function catalogo()
+    {
+        $productoModel = new Productos_model();
+        $categoriaModel = new Categorias_model();
+
+        // Obtener el filtro de categoría si existe
+        $categoriaSeleccionada = $this->request->getGet('categoria');
+
+        // Obtener categorías para el dropdown
+        $data['categorias'] = $categoriaModel->getCategorias();
+        $data['categoriaSeleccionada'] = $categoriaSeleccionada;
+
+        // Productos filtrados o todos
+        if ($categoriaSeleccionada) {
+            $data['productos'] = $productoModel->getProductosPorCategoria($categoriaSeleccionada);
+        } else {
+            $data['productos'] = $productoModel->getProductoAll();
+        }
+
+        echo view('plantilla/Header', ['titulo' => 'Catálogo']);
+        echo view('Catalogo', $data);
+        echo view('plantilla/Footer');
+    }
+
 }
 

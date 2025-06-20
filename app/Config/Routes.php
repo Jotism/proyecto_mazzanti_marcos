@@ -10,7 +10,7 @@ $routes->get('/Quienes-Somos', 'Home::index/Quienes Somos');
 $routes->get('/Contacto', 'Home::index/Contacto');
 $routes->get('/Comercializacion', 'Home::index/Comercializacion');
 $routes->get('/Terminos-Y-Uso', 'Home::index/Terminos Y Usos');
-$routes->get('/Catalogo', 'Home::index/Catalogo');
+$routes->get('/Catalogo', 'Productos_controller::mostrarCatalogo');
 $routes->get('/Consultas', 'Home::index/Consultas');
 $routes->get('/Carrito', 'Home::index/Carrito_parte_view');
 
@@ -29,7 +29,7 @@ $routes->get('/agregar', 'Productos_controller::index', ['filter' => 'auth']);
 $routes->get('/produ-form', 'Productos_controller::creaproducto', ['filter' => 'auth']);
 $routes->post('/enviar-prod', 'Productos_controller::store',['filter' => 'auth']);
 $routes->get('/editar/(:num)', 'Productos_controller::singleproducto/$1',['filter' => 'auth']);
-$routes->post('modifica/(:num)', 'Productos_controller::modifica/$l',['filter' => 'auth']);
+$routes->post('modifica/(:num)', 'Productos_controller::modifica/$1',['filter' => 'auth']);
 $routes->get('borrar/(:num)', 'Productos_controller::deleteproducto/$1');
 $routes->get('/eliminados' , 'Productos_controller::eliminados',['filter' => 'auth']);
 $routes->get('activar_pro/(:num)', 'Productos_controller::activarproducto/$1', ['filter' => 'auth']);
@@ -81,4 +81,6 @@ $routes->get('listar_consultas', 'Consultas_controller::listar_consultas');
 $routes->get('atender_consulta/(:segment)', 'Consultas_controller::atender_consulta/$1');
 $routes->get('eliminar_consulta/(:segment)', 'Consultas_controller::eliminar_consulta/$1');
 $routes->post('responder_consulta', 'Consultas_controller::responder_consulta');
+
+$routes->get('catalogo-filtrado', 'Productos_controller::catalogo_filtrado');
 

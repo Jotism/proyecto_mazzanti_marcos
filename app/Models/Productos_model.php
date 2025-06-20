@@ -53,4 +53,8 @@ class Productos_model extends Model
         $builder->update();
     }
 
+    public function getProductosPorCategoria($categoria_id) {
+        return $this->where('categoria_id', $categoria_id)->findAll();
+    }
+
 }

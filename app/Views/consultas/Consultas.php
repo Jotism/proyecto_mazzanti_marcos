@@ -1,7 +1,3 @@
-<pre>
-<?php print_r(session()->get()); ?>
-</pre>
-
 <?php if (empty($consultas)) { ?>
     <!-- avisamos que no hay consultas -->
     <div class="container">
