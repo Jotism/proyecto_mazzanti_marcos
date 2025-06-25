@@ -13,11 +13,7 @@ class AuthFilter implements FilterInterface
         $session = session();
 
         if (! $session->has('usuario')) {
-            return redirect()->to('/login');
-        }
-
-        if (session('perfil_id') != 1){
-            return redirect()->to('/');
+            return redirect()->to('/Registro');
         }
     }
 

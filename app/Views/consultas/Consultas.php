@@ -12,7 +12,9 @@
     <br><br><br><br><br>
 <?php } else { ?>
     <div class="container mt-4">
+        <br>
         <h2 class="text-center mb-4">Consultas</h2>
+        <br>
         <!-- mostramos la tabla consultas -->
             <div class="table-responsive-sm">
         <table class="table table-bordered text-center table-warning">
@@ -70,3 +72,4 @@
     filaForm.style.display = (filaForm.style.display === "none") ? "table-row" : "none";
   }
 </script>
+<br><br>

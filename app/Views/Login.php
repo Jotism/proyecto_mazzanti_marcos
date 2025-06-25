@@ -1,6 +1,7 @@
 <!-- app/Views/Login.php -->
 <div class="container mt-5">
     <h2>Iniciar Sesión</h2>
+    <br>
     <form method="post" action="<?= base_url('/validar-login') ?>">
         <?= csrf_field(); ?>
 
@@ -20,4 +21,5 @@
 
         <button type="submit" class="btn btn-primary">Ingresar</button>
     </form>
+<br><br><br>
 </div>

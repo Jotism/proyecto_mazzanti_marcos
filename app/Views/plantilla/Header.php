@@ -19,37 +19,64 @@
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-
-            <?php if(session('perfil_id') == 1): ?>
-                <div class="btn btn-danger active btnUser btn-sm">
-                  <a href="">USUARIO: <?php echo session('nombre'); ?></a>
-                </div>
-            <?php elseif (session('perfil_id') == 2): ?>
-                <div class="btn btn-danger active btnUser btn-sm ms-2">
-                  <a href="">CLIENTE: <?= session('nombre'); ?></a>
-                </div>
-            <?php endif; ?>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
-                <?php if (session('perfil_id') == 1): ?>
-                    <li class="nav-item">
-                      <a class="nav-link active text-light txt-menu" href="/proyecto_mazzanti_marcos">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link text-light txt-menu" href="<?= base_url('/users-list') ?>">CrudUsuarios</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link text-light txt-menu" href="<?= base_url('/listar_consultas') ?>">Gestión Consultas</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link text-light txt-menu" href="<?= base_url('/crear') ?>">CrudProductos</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link text-light txt-menu" href="<?= base_url('/ventas') ?>">Muestra Ventas</a>
-                    </li>
-                  <?php else: ?>
-                    <li class="nav-item">
+                <?php if(session('perfil_id') == 1): ?>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle txt-menu text-light" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="">
+                        ADMIN: <?php echo session('nombre'); ?>
+                      </a>
+                      <ul class="dropdown-menu bg-secondary">
+                        <li>
+                          <a class="dropdown-item nav-link text-light txt-menu" href="<?= base_url('/users-list') ?>">CrudUsuarios</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item nav-link text-light txt-menu" href="<?= base_url('/listar_consultas') ?>">Gestión Consultas</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item nav-link text-light txt-menu" href="<?= base_url('/crear') ?>">CrudProductos</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item nav-link text-light txt-menu" href="<?= base_url('/ventas') ?>">Muestra Ventas</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/logout">Cerrar sesión</a>
+                        </li>
+                      </ul>
+                  </li>
+                <?php elseif (session('perfil_id') == 2): ?>
+                  <li class="nav-item dropdown">                    
+                      <a class="nav-link dropdown-toggle txt-menu text-light" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="">
+                        CLIENTE: <?= session('nombre'); ?>
+                      </a>
+                      <ul class="dropdown-menu bg-secondary">
+                        <li>
+                          <a class="dropdown-item nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/Consultas-Cliente">Mis consultas</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/ver_factura_usuario/<?= session('id') ?>">Mis facturas</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/logout">Cerrar sesión</a>
+                        </li>
+                      </ul>
+                  </li>
+                <?php elseif (!isset($_SESSION['usuario'])): ?>
+                  <li class="nav-item dropdown">                    
+                      <a class="nav-link dropdown-toggle txt-menu text-light" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="">
+                        USUARIO
+                      </a>
+                      <ul class="dropdown-menu bg-secondary">
+                        <li>
+                          <a class="dropdown-item nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/login">Iniciar Sesión</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/Registro">Registrarse</a>
+                        </li>
+                      </ul>
+                <?php endif; ?>
+
+                  <li class="nav-item">
                     <a class="nav-link active text-light txt-menu" aria-current="page" href="/proyecto_mazzanti_marcos">Inicio</a>
                   </li>
                   <li class="nav-item">
@@ -69,25 +96,7 @@
                   </li>
                   <li class="nav-item">
                     <a class="nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/muestra">Carrito</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/Consultas-Cliente">Consultas</a>
-                  </li>
-                  <?php endif; ?>
-
-                  <?php if (isset($_SESSION['usuario'])): ?>
-                    <li class="nav-item">
-                      <a class="nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/logout">Cerrar sesión</a>
-                    </li>
-                  <?php else: ?>
-                    <li class="nav-item">
-                      <a class="nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/login">Iniciar Sesión</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/Registro">Registrarse</a>
-                    </li>
-                  <?php endif; ?>
-
+                  </li>                              
               </ul>
             </div>
           </div>

@@ -29,6 +29,9 @@
 	font-family: "Poppins", sans-serif;
 }
 
+.dropdown-item:hover{
+	color: darkred !important
+}
 
 .nav-item{
 	padding: 0 10px;

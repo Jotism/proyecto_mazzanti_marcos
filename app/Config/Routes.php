@@ -48,39 +48,39 @@ $routes->get('activar/(:num)', 'Usuario_crud_controller::activar/$1', ['filter' 
 //muestra todos los productos del catalogo
 $routes->get('/todos_p','carrito_controller::catalogo');
 //carga la vista carrito_parte_view
-$routes->get('/muestra','carrito_controller::muestra');
+$routes->get('/muestra','carrito_controller::muestra', ['filter' => 'auth']);
 //actualiza los datos del carrito
-$routes->get('/carrito_actualiza','carrito_controller::actualiza_carrito');
+$routes->get('/carrito_actualiza','carrito_controller::actualiza_carrito', ['filter' => 'auth']);
 //agregar los items seleccionados
-$routes->post('carrito/add','carrito_controller::add');
+$routes->post('carrito/add','carrito_controller::add', ['filter' => 'auth']);
 //elimina un item del carrito
-$routes->get('carrito_elimina/(:any)','carrito_controller::remove/$1');
+$routes->get('carrito_elimina/(:any)','carrito_controller::remove/$1', ['filter' => 'auth']);
 //elimar todo el carrito
-$routes->get('/borrar','carrito_controller::borrar_carrito');
+$routes->get('/borrar','carrito_controller::borrar_carrito', ['filter' => 'auth']);
 //Registrar la venta en las tablas
-$routes->get('/carrito-comprar','Ventas_controller::registrar_venta');
+$routes->get('/carrito-comprar','Ventas_controller::registrar_venta', ['filter' => 'auth']);
 //botones de sumar y restar en la vista del carrito
-$routes->get('carrito_suma/(:any)','carrito_controller::suma/$1');
-$routes->get('carrito_resta/(:any)','carrito_controller::resta/$1');
+$routes->get('carrito_suma/(:any)','carrito_controller::suma/$1', ['filter' => 'auth']);
+$routes->get('carrito_resta/(:any)','carrito_controller::resta/$1', ['filter' => 'auth']);
 
 // Rutas del cliente para ver sus compras y el detalle
-$routes->get('vista_compras/(:num)', 'Ventas_controller::ver_factura/$1');
-$routes->get('ver_factura_usuario/(:num)', 'Ventas_controller::ver_facturas_usuario/$1');
+$routes->get('vista_compras/(:num)', 'Ventas_controller::ver_factura/$1', ['filter' => 'auth']);
+$routes->get('ver_factura_usuario/(:num)', 'Ventas_controller::ver_facturas_usuario/$1', ['filter' => 'auth']);
 
 // Las ventas que ve el admin
-$routes->get('/ventas', 'Ventas_controller::ventas');
+$routes->get('/ventas', 'Ventas_controller::ventas', ['filter' => 'auth']);
 
 //Consultas del cliente
-$routes->post('guardar_consulta', 'Consultas_controller::guardar_consulta');
+$routes->post('guardar_consulta', 'Consultas_controller::guardar_consulta', ['filter' => 'auth']);
 
 //Vista para el cliente de consultas
-$routes->get('Consultas-Cliente', 'Consultas_controller::vista_consulta_cliente');
+$routes->get('Consultas-Cliente', 'Consultas_controller::vista_consulta_cliente', ['filter' => 'auth']);
 
 //gestión de consultas
-$routes->get('listar_consultas', 'Consultas_controller::listar_consultas');
-$routes->get('atender_consulta/(:segment)', 'Consultas_controller::atender_consulta/$1');
-$routes->get('eliminar_consulta/(:segment)', 'Consultas_controller::eliminar_consulta/$1');
-$routes->post('responder_consulta', 'Consultas_controller::responder_consulta');
+$routes->get('listar_consultas', 'Consultas_controller::listar_consultas', ['filter' => 'auth']);
+$routes->get('atender_consulta/(:segment)', 'Consultas_controller::atender_consulta/$1', ['filter' => 'auth']);
+$routes->get('eliminar_consulta/(:segment)', 'Consultas_controller::eliminar_consulta/$1', ['filter' => 'auth']);
+$routes->post('responder_consulta', 'Consultas_controller::responder_consulta', ['filter' => 'auth']);
 
 $routes->get('catalogo-filtrado', 'Productos_controller::catalogo_filtrado');
 

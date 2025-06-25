@@ -1,7 +1,8 @@
-<div class="container pt-5 mt-5 mb-5">
+<div class="container mt-5 mb-5">
     <div class="card-header text-justify">
         <div class="row d-flex justify-content-center">
             <div class="card col-lg-3" style="width: 50%;">
+                <br>
                 <h4>Registrarse</h4>
                 <?php $validation = \Config\Services::validation(); ?>
                 <form method="post" action="<?= base_url('/enviar-form') ?>">
@@ -57,8 +58,8 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="exampleFormControlTextarea4" class="form-label">pass</label>
-                            <input type="text" name="pass" class="form-control" placeholder="pass">
+                            <label for="exampleFormControlTextarea4" class="form-label">contraseña</label>
+                            <input type="text" name="pass" class="form-control" placeholder="contraseña">
                             <?php if($validation->getError('pass')): ?>
                                 <div class="alert alert-danger mt-2">
                                     <?= $validation->getError('pass'); ?>
