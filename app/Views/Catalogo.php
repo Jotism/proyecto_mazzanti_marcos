@@ -17,6 +17,7 @@
     <div class="row">
         <?php if (!empty($productos)): ?>
            <?php foreach ($productos as $row) { ?>
+                <?php if ($row['eliminado'] == "NO" || $row['stock'] > $row['stock_min']): ?>
                                 <div class="col-md-4 mb-4">
                                     <div class="card h-100">
                                         <img src="<?= base_url('assets/uploads/' . $row['imagen']) ?>" class="card-img-top" alt="<?= $row['nombre_prod'] ?>" style="height: 200px; object-fit: cover;">
@@ -42,6 +43,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <?php endif; ?>
                             <?php } ?>
         <?php else: ?>
             <p class="text-center">No hay productos disponibles.</p>

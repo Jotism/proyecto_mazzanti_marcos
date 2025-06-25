@@ -1,10 +1,13 @@
+<br><br><br>
 <?php if (empty($ventas)) { ?>
     <!-- Avisamos que no hay consultas -->
     <div class="container">
         <div class="alert alert-dark text-center" role="alert">
             <h4 class="alert-heading">No posee compras registradas</h4>
+            <br>
             <p>Para realizar una compra visite nuestro catálogo.</p>
             <hr>
+            <br>
             <a class="btn btn-warning my-2 w-10" href="<?= base_url('todos_p') ?>">Catálogo</a>
         </div>
     </div>
@@ -12,6 +15,7 @@
     <div class="container">
         <div class="table-responsive-sm text-center">
             <h1 class="text-center">Mis compras</h1>
+            <br><br>
             <table class="table table-warning table-striped rounded">
                 <thead class="thead-dark">
                     <tr>
