@@ -70,7 +70,7 @@ if (empty($venta)) { ?>
 <br><br><br>
 <div class="row">
     <div class="col-xl-12 col-xs-12 text-center">
-        <div class="h2 text-danger">Gracias por su compra</div>
+        <div class="h2 gracias-factura">Gracias por su compra</div>
     </div>
 </div>
 <br><br>

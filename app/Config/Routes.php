@@ -24,24 +24,24 @@ $routes->post('/validar-login', 'Usuarios_controller::validarLogin');
 $routes->get('/logout', 'Usuarios_controller::logout');
 
 /*Rutas de productos*/
-$routes->get('/crear', 'Productos_controller::index', ['filter' => 'auth']);
-$routes->get('/agregar', 'Productos_controller::index', ['filter' => 'auth']);
-$routes->get('/produ-form', 'Productos_controller::creaproducto', ['filter' => 'auth']);
-$routes->post('/enviar-prod', 'Productos_controller::store',['filter' => 'auth']);
-$routes->get('/editar/(:num)', 'Productos_controller::singleproducto/$1',['filter' => 'auth']);
-$routes->post('modifica/(:num)', 'Productos_controller::modifica/$1',['filter' => 'auth']);
+$routes->get('/crear', 'Productos_controller::index', ['filter' => 'admin']);
+$routes->get('/agregar', 'Productos_controller::index', ['filter' => 'admin']);
+$routes->get('/produ-form', 'Productos_controller::creaproducto', ['filter' => 'admin']);
+$routes->post('/enviar-prod', 'Productos_controller::store',['filter' => 'admin']);
+$routes->get('/editar/(:num)', 'Productos_controller::singleproducto/$1',['filter' => 'admin']);
+$routes->post('modifica/(:num)', 'Productos_controller::modifica/$1',['filter' => 'admin']);
 $routes->get('borrar/(:num)', 'Productos_controller::deleteproducto/$1');
-$routes->get('/eliminados' , 'Productos_controller::eliminados',['filter' => 'auth']);
-$routes->get('activar_pro/(:num)', 'Productos_controller::activarproducto/$1', ['filter' => 'auth']);
+$routes->get('/eliminados' , 'Productos_controller::eliminados',['filter' => 'admin']);
+$routes->get('activar_pro/(:num)', 'Productos_controller::activarproducto/$1', ['filter' => 'admin']);
 
 /*Rutas de manejo de usuarios*/
-$routes->get('/users-list', 'Usuario_crud_controller::index', ['filter' => 'auth']);
-$routes->get('/user-form', 'Usuario_crud_controller::create', ['filter' => 'auth']);
-$routes->post('/enviar', 'Usuario_crud_controller::store',['filter' => 'auth']);
-$routes->get('/editar-user/(:num)', 'Usuario_crud_controller::singleUser/$1',['filter' => 'auth']);
-$routes->post('modifica-user', 'Usuario_crud_controller::update',['filter' => 'auth']);
-$routes->get('deleteLogico/(:num)', 'Usuario_crud_controller::deleteLogico/$1');
-$routes->get('activar/(:num)', 'Usuario_crud_controller::activar/$1', ['filter' => 'auth']);
+$routes->get('/users-list', 'Usuario_crud_controller::index', ['filter' => 'admin']);
+$routes->get('/user-form', 'Usuario_crud_controller::create', ['filter' => 'admin']);
+$routes->post('/enviar', 'Usuario_crud_controller::store',['filter' => 'admin']);
+$routes->get('/editar-user/(:num)', 'Usuario_crud_controller::singleUser/$1',['filter' => 'admin']);
+$routes->post('modifica-user', 'Usuario_crud_controller::update',['filter' => 'admin']);
+$routes->get('deleteLogico/(:num)', 'Usuario_crud_controller::deleteLogico/$1',['filter' => 'admin']);
+$routes->get('activar/(:num)', 'Usuario_crud_controller::activar/$1', ['filter' => 'admin']);
 
 
 //Rutas para el carrito*/
@@ -68,7 +68,7 @@ $routes->get('vista_compras/(:num)', 'Ventas_controller::ver_factura/$1', ['filt
 $routes->get('ver_factura_usuario/(:num)', 'Ventas_controller::ver_facturas_usuario/$1', ['filter' => 'auth']);
 
 // Las ventas que ve el admin
-$routes->get('/ventas', 'Ventas_controller::ventas', ['filter' => 'auth']);
+$routes->get('/ventas', 'Ventas_controller::ventas', ['filter' => 'admin']);
 
 //Consultas del cliente
 $routes->post('guardar_consulta', 'Consultas_controller::guardar_consulta', ['filter' => 'auth']);
@@ -77,10 +77,10 @@ $routes->post('guardar_consulta', 'Consultas_controller::guardar_consulta', ['fi
 $routes->get('Consultas-Cliente', 'Consultas_controller::vista_consulta_cliente', ['filter' => 'auth']);
 
 //gestión de consultas
-$routes->get('listar_consultas', 'Consultas_controller::listar_consultas', ['filter' => 'auth']);
-$routes->get('atender_consulta/(:segment)', 'Consultas_controller::atender_consulta/$1', ['filter' => 'auth']);
-$routes->get('eliminar_consulta/(:segment)', 'Consultas_controller::eliminar_consulta/$1', ['filter' => 'auth']);
-$routes->post('responder_consulta', 'Consultas_controller::responder_consulta', ['filter' => 'auth']);
+$routes->get('listar_consultas', 'Consultas_controller::listar_consultas', ['filter' => 'admin']);
+$routes->get('atender_consulta/(:segment)', 'Consultas_controller::atender_consulta/$1', ['filter' => 'admin']);
+$routes->get('eliminar_consulta/(:segment)', 'Consultas_controller::eliminar_consulta/$1', ['filter' => 'admin']);
+$routes->post('responder_consulta', 'Consultas_controller::responder_consulta', ['filter' => 'admin']);
 
 $routes->get('catalogo-filtrado', 'Productos_controller::catalogo_filtrado');
 
