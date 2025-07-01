@@ -67,7 +67,7 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="6" class="text-right"><h4>Total filtrado:</h4></td>
+                        <td colspan="6" class="text-right"><h4>Total:</h4></td>
                         <td><h4 id="totalProductos">$0.00</h4></td>
                     </tr>
                 </tfoot>
@@ -161,7 +161,7 @@
 
         <!-- Subtotal global -->
         <div class="mt-4 text-end">
-            <h4>Total filtrado: <span id="totalUsuarios">$0.00</span></h4>
+            <h4>Total : <span id="totalUsuarios">$0.00</span></h4>
         </div>
     </div>
 </div>
