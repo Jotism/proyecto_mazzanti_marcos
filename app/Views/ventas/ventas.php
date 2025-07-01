@@ -46,20 +46,23 @@
                 <tbody>
                     <?php $i = 0; ?>
                     <?php foreach ($venta as $row): ?>
-                        <?php
-                        $i++;
-                        $imagen = $row['imagen'];
-                        $subtotal = $row['precio_vta'] * $row['cantidad'];
-                        ?>
-                        <tr class="text-center">
-                            <td><?= $i ?></td>
-                            <td><?= $row['nombre']; ?></td>
-                            <td><?= $row['nombre_prod']; ?></td>
-                            <td><img width="100" height="55" src="<?= base_url('assets/uploads/' . $imagen) ?>"></td>
-                            <td><?= number_format($row['cantidad']) ?></td>
-                            <td><?= $row['precio_vta']; ?></td>
-                            <td><?= number_format($subtotal, 2) ?></td>
-                        </tr>
+                        <?php for ($u = 0; $u < $row['cantidad']; $u++): ?>
+                            <?php
+                                $i++;
+                                $imagen   = $row['imagen'];
+                                $subtotal = $row['precio_vta'];   // precio unitario
+                            ?>
+                            <tr class="text-center">
+                                <td><?= $i ?></td>
+                                <td><?= $row['nombre']; ?></td>
+                                <td><?= $row['nombre_prod']; ?></td>
+                                <td><img width="100" height="55"
+                                        src="<?= base_url('assets/uploads/' . $imagen) ?>"></td>
+                                <td>1</td>
+                                <td><?= number_format($row['precio_vta'], 2) ?></td>
+                                <td><?= number_format($subtotal, 2) ?></td>
+                            </tr>
+                        <?php endfor; ?>
                     <?php endforeach; ?>
                 </tbody>
                 <tfoot>
@@ -96,20 +99,26 @@
 
             <?php foreach ($ordenes as $orden_id => $productos): ?>
                 <?php
-                    $usuario = $productos[0]['nombre'];
+                    $usuario     = $productos[0]['nombre'];
+
+                    /* (1) — total real de la orden */
                     $total_orden = 0;
                     foreach ($productos as $prod) {
-                        $total_orden += $prod['precio'];
+                        $total_orden += $prod['precio_vta'] * $prod['cantidad'];   //
                     }
                 ?>
+
                 <div class="accordion-item venta-item" data-usuario="<?= strtolower($usuario) ?>">
                     <h2 class="accordion-header" id="heading<?= $orden_id ?>">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapse<?= $orden_id ?>" aria-expanded="false"
-                            aria-controls="collapse<?= $orden_id ?>">
-                            Orden #<?= $orden_id ?> | Usuario: <?= $usuario ?> | Total: $<?= number_format($total_orden, 2) ?>
+                        <button class="accordion-button collapsed" type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#collapse<?= $orden_id ?>" aria-expanded="false"
+                                aria-controls="collapse<?= $orden_id ?>">
+                            Orden #<?= $orden_id ?> | Usuario: <?= $usuario ?>
+                            | Total: $<?= number_format($total_orden, 2) ?>
                         </button>
                     </h2>
+
                     <div id="collapse<?= $orden_id ?>" class="accordion-collapse collapse"
                         aria-labelledby="heading<?= $orden_id ?>">
                         <div class="accordion-body">
@@ -120,18 +129,21 @@
                                         <th>Imagen</th>
                                         <th>Cantidad</th>
                                         <th>Precio Unitario</th>
-                                        <th>Sub-Total</th>
+                                        <th>Sub‑Total</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php foreach ($productos as $row): ?>
                                         <?php
-                                            $precio_unitario = $row['precio'] / $row['cantidad'];
+                                            /* (2) — precio unitario ya viene en $row['precio'] */
+                                            $precio_unitario = $row['precio_vta'];
+
                                             for ($i = 0; $i < $row['cantidad']; $i++):
                                         ?>
                                             <tr>
                                                 <td><?= esc($row['nombre_prod']) ?></td>
-                                                <td><img width="100" height="55" src="<?= base_url('assets/uploads/' . esc($row['imagen'])) ?>"></td>
+                                                <td><img width="100" height="55"
+                                                        src="<?= base_url('assets/uploads/' . esc($row['imagen'])) ?>"></td>
                                                 <td>1</td>
                                                 <td>$<?= number_format($precio_unitario, 2) ?></td>
                                                 <td>$<?= number_format($precio_unitario, 2) ?></td>
@@ -143,7 +155,8 @@
                         </div>
                     </div>
                 </div>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
+
         </div>
 
         <!-- Subtotal global -->
@@ -163,7 +176,9 @@
 $(document).ready(function () {
     // Inicializar DataTable para productos
     var tabla = $('#tabla-productos').DataTable({
-        dom: 'rt', // sin paginación ni búsqueda por defecto
+    dom: 'rt',          // sin buscador/paginador generados por DT
+    order: [[2, 'asc']],// ordena por “Nombre Producto”
+    pageLength: 50      // ↑ mostrá 50 filas (podés poner paging:false)
     });
 
     // Filtro personalizado por nombre de producto
