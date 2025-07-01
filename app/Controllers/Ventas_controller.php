@@ -23,7 +23,7 @@ class Ventas_controller extends Controller{
         $productos_sin_stock = [];
         $total = 0;
 
-        // Validar stock y filtrar productos válidos
+        // Validar stock y filtrar productos válidos (mover al carrito)
         foreach ($carrito_contents as $item) {
             $producto = $productoModel->getProducto($item['id']);
 
