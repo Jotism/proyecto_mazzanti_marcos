@@ -58,17 +58,17 @@ $routes->get('carrito_elimina/(:any)','carrito_controller::remove/$1', ['filter'
 //elimar todo el carrito
 $routes->get('/borrar','carrito_controller::borrar_carrito', ['filter' => 'auth']);
 //Registrar la venta en las tablas
-$routes->get('/carrito-comprar','Ventas_controller::registrar_venta', ['filter' => 'auth']);
+$routes->get('/carrito-comprar','Ventas_cabecera_controller::registrar_venta', ['filter' => 'auth']);
 //botones de sumar y restar en la vista del carrito
 $routes->get('carrito_suma/(:any)','carrito_controller::suma/$1', ['filter' => 'auth']);
 $routes->get('carrito_resta/(:any)','carrito_controller::resta/$1', ['filter' => 'auth']);
 
 // Rutas del cliente para ver sus compras y el detalle
-$routes->get('vista_compras/(:num)', 'Ventas_controller::ver_factura/$1', ['filter' => 'auth']);
-$routes->get('ver_factura_usuario/(:num)', 'Ventas_controller::ver_facturas_usuario/$1', ['filter' => 'auth']);
+$routes->get('vista_compras/(:num)', 'Ventas_detalle_controller::ver_factura/$1', ['filter' => 'auth']);
+$routes->get('ver_factura_usuario/(:num)', 'Ventas_cabecera_controller::ver_facturas_usuario/$1', ['filter' => 'auth']);
 
 // Las ventas que ve el admin
-$routes->get('/ventas', 'Ventas_controller::ventas', ['filter' => 'admin']);
+$routes->get('/ventas', 'Ventas_cabecera_controller::ventas', ['filter' => 'admin']);
 
 //Consultas del cliente
 $routes->post('guardar_consulta', 'Consultas_controller::guardar_consulta', ['filter' => 'auth']);
