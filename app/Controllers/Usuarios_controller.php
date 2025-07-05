@@ -57,7 +57,11 @@ class Usuarios_controller extends Controller{
                             ->first();
 
         if ($dataUsuario) {
-            if (password_verify($pass, $dataUsuario['pass'])) {
+
+            if($dataUsuario['baja'] == "SI"){
+                session()->setFlashdata('error', 'Su cuenta fue desactivada');
+            }
+            else if (password_verify($pass, $dataUsuario['pass'])) {
                 $sessionData = [
                     'id'       => $dataUsuario['id'],
                     'nombre'   => $dataUsuario['nombre'],
