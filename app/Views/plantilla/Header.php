@@ -28,13 +28,13 @@
                       </a>
                       <ul class="dropdown-menu bg-secondary">
                         <li>
-                          <a class="dropdown-item nav-link text-light txt-menu" href="<?= base_url('/users-list') ?>">CrudUsuarios</a>
+                          <a class="dropdown-item nav-link text-light txt-menu" href="<?= base_url('/users-list') ?>">Crud Usuarios</a>
                         </li>
                         <li>
                           <a class="dropdown-item nav-link text-light txt-menu" href="<?= base_url('/listar_consultas') ?>">Gestión Consultas</a>
                         </li>
                         <li>
-                          <a class="dropdown-item nav-link text-light txt-menu" href="<?= base_url('/crear') ?>">CrudProductos</a>
+                          <a class="dropdown-item nav-link text-light txt-menu" href="<?= base_url('/crear') ?>">Crud Productos</a>
                         </li>
                         <li>
                           <a class="dropdown-item nav-link text-light txt-menu" href="<?= base_url('/ventas') ?>">Muestra Ventas</a>
@@ -57,7 +57,7 @@
                           <a class="dropdown-item nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/ver_factura_usuario/<?= session('id') ?>">Mis facturas</a>
                         </li>
                         <li>
-                          <a class="dropdown-item nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/logout">Cerrar sesión</a>
+                          <a class="dropdown-item nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/logout">Cerrar Sesión</a>
                         </li>
                       </ul>
                   </li>
@@ -80,10 +80,10 @@
                     <a class="nav-link active text-light txt-menu" aria-current="page" href="/proyecto_mazzanti_marcos">Inicio</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/Catalogo">Catalogo</a>
+                    <a class="nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/Catalogo">Catálogo</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/Quienes-Somos">Quienes Somos</a>
+                    <a class="nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/Quienes-Somos">Quiénes Somos</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/Terminos-Y-Uso">Términos y Usos</a>

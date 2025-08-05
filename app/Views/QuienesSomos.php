@@ -1,18 +1,18 @@
 <div class = "txt-pag">
     <br>
-    <h1 class="titulos-QS" style="text-align: center;">Quienes Somos</h1>
+    <h1 class="titulos-QS" style="text-align: center;">Quiénes Somos</h1>
     <br>
-        <div>
-            <p>Xport es una empresa dedicada a la comercialización de autos de alta gama, con más de 10 años de experiencia <br>en el mercado argentino. Nuestro objetivo principal es acercar a nuestros clientes los modelos más<br> exclusivos, combinando lujo, confort y tecnología de última generación.</p>
-            <p>Contamos con un equipo de profesionales especializados en el rubro automotor, comprometidos en brindar <br>una atención personalizada y asesoramiento integral en cada operación. Nuestra trayectoria se respalda <br>en la confianza de cientos de clientes satisfechos que encontraron en Xport el auto de sus sueños.</p>
-            <p>Todos nuestros vehículos se retiran personalmente en nuestros almacenes autorizados en el país, garantizando<br> así un proceso de entrega seguro y controlado.</p>
+        <div class="linea-QS1">
+            <p>Xport es una empresa dedicada a la comercialización de autos de alta gama, con más de 10 años de experiencia en el mercado argentino. Nuestro objetivo principal es acercar a nuestros clientes los modelos más exclusivos, combinando lujo, confort y tecnología de última generación.</p>
+            <p>Contamos con un equipo de profesionales especializados en el rubro automotor, comprometidos en brindar una atención personalizada y asesoramiento integral en cada operación. Nuestra trayectoria se respalda en la confianza de cientos de clientes satisfechos que encontraron en Xport el auto de sus sueños.</p>
+            <p>Todos nuestros vehículos se retiran personalmente en nuestros almacenes autorizados en el país, garantizando así un proceso de entrega seguro y controlado.</p>
         </div>
-        <br>
-        <h2 class="titulos-QS" style="text-align: center;"> Un poco sobre nuestra historia y recorrido en el sector automovilistico</h2>
+        <br><br><br>
+        <h2 class="titulos-QS" style="text-align: center;"> Un poco sobre nuestra historia y recorrido en el sector automovilístico</h2>
         <br>
             <div class="linea-QS1">
                 <div class="col-2">
-                <p>En 1971, Marcos Mazzanti y Joaquin Rojas, apasionados por el mundo automotor, decidieron unir esfuerzos<br> para crear Xport.Con pocos recursos pero con mucha dedicación, comenzaron vendiendo autos usados y <br> vehículos de gama media, enfocándose siempre en ofrecer transparencia, asesoramiento personalizado<br> y un servicio de calidad a cada cliente.</p>
+                <p>En 1971, Marcos Mazzanti y Joaquin Rojas, apasionados por el mundo automotor, decidieron unir esfuerzos para crear Xport.Con pocos recursos pero con mucha dedicación, comenzaron vendiendo autos usados y vehículos de gama media, enfocándose siempre en ofrecer transparencia, asesoramiento personalizado y un servicio de calidad a cada cliente.</p>
                 </div>
                 <div class="col-2">
                 <img src="assets/img/img-quienesSomos1.png" alt="Parrafo1" class="img-quienesSomos" text-align: center>
