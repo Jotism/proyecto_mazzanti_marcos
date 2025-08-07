@@ -55,7 +55,7 @@
 }
 
 .Texto-Redes{
-	text-transform: capitalize;
+  text-transform: capitalize;
   font-weight: bolder;
   font-size: 60px;
 }
@@ -115,7 +115,6 @@
 	font-weight: bold;
 	text-shadow: 1px 2px black;
 }
-
 
 .botones-marca-principal{
 	width: 50px;
@@ -182,6 +181,7 @@
 	margin-bottom: 50px;
 	font-family: "Anonymous Pro", monospace;
 }
+
 .columna-productos-principal img{
 	width: 100%;
 }
@@ -263,7 +263,6 @@
 	gap: 20px;
 }
 
-
 .contact-right-title h2 {
 	font-weight: 600;
 	color: white;
@@ -324,18 +323,18 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;          
-  }
+}
   
-  .contact-right {
+.contact-right {
 	width: 100%;
 	max-width: 500px; 
 	padding: 20px;
-  }
+}
 
-  .fila-titulo{
+.fila-titulo{
     justify-content: space-between;
     margin: 100px auto 50px;
-  }
+}
 
 .eleccion-busqueda{
     border: 1px solid black;
@@ -347,10 +346,10 @@
 
 .contenedor-botones-catalogo{
 	display: flex;
-  justify-content: center; 
-  align-items: center;     
-  gap: 10px;               
-  margin-top: 20px; 
+	justify-content: center; 
+	align-items: center;     
+	gap: 10px;               
+	margin-top: 20px; 
 }
 
 .boton-pagina{
@@ -381,16 +380,16 @@
 }
   
 
-  @media screen and (max-width: 1280px) {
+@media screen and (max-width: 1280px) {
 	.txt-carrusel-1-1, .txt-carrusel-1-2{
 		text-align: center !important;
 	}
 	.txt-carrusel-1-1{
 		font-size: 55px;
 	}
-  }
+}
 
-  @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
 	.txt-carrusel-1-1, .txt-carrusel-1-2, .txt-carrusel-2, .txt-carrusel-3{
 		font-size: 35px;
 		text-align: center !important;
@@ -418,4 +417,4 @@
 	.wrapper > .contenido-principal {
 		flex: 1;
 	}
-  }
+}

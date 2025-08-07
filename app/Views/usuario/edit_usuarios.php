@@ -42,8 +42,13 @@
 
             <!-- Perfil ID -->
             <div class="form-group">
-                <label>Perfil_id</label>
-                <input type="text" name="perfil" class="form-control" value="<?= $user_obj['perfil_id']; ?>" autofocus>
+                <label>Perfil ID</label>
+                <?php if ($user_obj['id'] != session('id')): ?>
+                    <input type="text" name="perfil" class="form-control" value="<?= $user_obj['perfil_id']; ?>" autofocus>
+                <?php else: ?>
+                    <label class="text-danger">*este campo no lo puede cambiar</label>
+                    <input type="text" name="perfil" class="form-control" value="<?= $user_obj['perfil_id']; ?>" autofocus readonly>
+                <?php endif; ?>
             </div>
             <br>
 
