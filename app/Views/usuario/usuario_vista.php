@@ -33,7 +33,9 @@
               <td class="text-center"><?php echo $user['baja']; ?></td>
               <td class="d-flex justify-content-between">
                 <a href="<?php echo base_url('editar-user/'.$user['id']); ?>" class="btn btn-primary btn-sm">Editar</a>
-                <a href="<?php echo base_url('deleteLogico/'.$user['id']); ?>" class="btn btn-danger btn-sm">Borrar</a>
+                <?php if ($user['perfil_id'] != 1): ?>
+                  <a href="<?php echo base_url('deleteLogico/'.$user['id']); ?>" class="btn btn-danger btn-sm">Borrar</a>
+                <?php endif; ?>
                 <a href="<?php echo base_url('activar/'.$user['id']); ?>" class="btn btn-secondary btn-sm">Activar</a>
               </td>
             </tr>
