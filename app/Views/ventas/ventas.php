@@ -1,262 +1,225 @@
 <br>
 <?php $session = session(); ?>
+
 <?php if (empty($venta)) { ?>
-    <div class="container mt-5">
-        <div class="alert alert-dark text-center" role="alert">
-            <h4 class="alert-heading">No posee ventas registradas</h4>
-            <hr>
-            <a class="btn btn-warning my-2 w-10" href="<?= base_url('catalogo') ?>">Catálogo</a>
-        </div>
+  <div class="container mt-5">
+    <div class="alert alert-dark text-center" role="alert">
+      <h4 class="alert-heading">No posee ventas registradas</h4>
+      <hr>
+      <a class="btn btn-warning my-2 w-10" href="<?= base_url('catalogo') ?>">Catálogo</a>
     </div>
+  </div>
 <?php } else { ?>
 
-<!-- SELECTOR DE VISTA -->
-<div class="container mt-4">
-    <label for="vistaSelect"><strong>Ver ventas por:</strong></label>
-    <select id="vistaSelect" class="form-select w-50 mb-4">
-        <option value="productos" selected>Productos</option>
-        <option value="usuarios">Usuarios</option>
-    </select>
-</div>
-
-<!-- VISTA PRODUCTOS -->
-<div id="vista-productos">
-    <div class="row container-fluid">
-        <div class="table-responsive-sm text-center table-bordered table-hover align-middle">
-            <h1 class="text-center">DETALLE DE VENTAS POR PRODUCTOS</h1>
-
-            <!-- Buscador de productos -->
-            <div class="mb-3">
-                <label><strong>Buscar por nombre de producto:</strong></label>
-                <input type="text" id="buscador-productos" class="form-control" placeholder="Ejemplo: Celular">
-            </div>
-
-            <table class="table table-secondary table-striped rounded" id="tabla-productos">
-                <thead class="table-dark text-center">
-                    <tr>
-                        <th>ORDEN</th>
-                        <th>USUARIO</th>
-                        <th>NOMBRE PRODUCTO</th>
-                        <th>IMAGEN</th>
-                        <th>CANTIDAD</th>
-                        <th>COSTO</th>
-                        <th>SUB-TOTAL</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $i = 0; ?>
-                    <?php foreach ($venta as $row): ?>
-                        <?php for ($u = 0; $u < $row['cantidad']; $u++): ?>
-                            <?php
-                                $i++;
-                                $imagen   = $row['imagen'];
-                                $subtotal = $row['precio_vta'];   // precio unitario
-                            ?>
-                            <tr class="text-center">
-                                <td><?= $i ?></td>
-                                <td><?= $row['nombre']; ?></td>
-                                <td><?= $row['nombre_prod']; ?></td>
-                                <td><img width="100" height="55"
-                                        src="<?= base_url('assets/uploads/' . $imagen) ?>"></td>
-                                <td>1</td>
-                                <td><?= number_format($row['precio_vta'], 2) ?></td>
-                                <td><?= number_format($subtotal, 2) ?></td>
-                            </tr>
-                        <?php endfor; ?>
-                    <?php endforeach; ?>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="6" class="text-right"><h4>Total:</h4></td>
-                        <td><h4 id="totalProductos">$0.00</h4></td>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
-    </div>
-</div>
-
-<!-- VISTA USUARIOS -->
-<div id="vista-usuarios" style="display: none;">
-    <div class="container my-4">
-        <h1 class="text-center">DETALLE DE VENTAS POR USUARIOS</h1>
-
-        <!-- Buscador de usuarios -->
-        <div class="mb-3">
-            <label><strong>Buscar por usuario:</strong></label>
-            <input type="text" id="buscador-usuarios" class="form-control" placeholder="Ejemplo: Marcos">
-        </div>
-
-        <div class="accordion" id="ventasAccordion">
-            <?php
-            // AGRUPAR ventas por ID de orden
-            $ordenes = [];
-            foreach ($venta as $row) {
-                $orden_id = $row['id_venta'];
-                $ordenes[$orden_id][] = $row;
-            }
-            ?>
-
-            <?php foreach ($ordenes as $orden_id => $productos): ?>
-                <?php
-                    $usuario     = $productos[0]['nombre'];
-
-                    /* (1) — total real de la orden */
-                    $total_orden = 0;
-                    foreach ($productos as $prod) {
-                        $total_orden += $prod['precio_vta'] * $prod['cantidad'];   //
-                    }
-                ?>
-
-                <div class="accordion-item venta-item" data-usuario="<?= strtolower($usuario) ?>">
-                    <h2 class="accordion-header" id="heading<?= $orden_id ?>">
-                        <button class="accordion-button collapsed" type="button"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#collapse<?= $orden_id ?>" aria-expanded="false"
-                                aria-controls="collapse<?= $orden_id ?>">
-                            Orden #<?= $orden_id ?> | Usuario: <?= $usuario ?>
-                            | Total: $<?= number_format($total_orden, 2) ?>
-                        </button>
-                    </h2>
-
-                    <div id="collapse<?= $orden_id ?>"
-                        class="accordion-collapse collapse"
-                        data-bs-parent="#ventasAccordion"
-                        aria-labelledby="heading<?= $orden_id ?>">
-                        <div class="accordion-body">
-                            <table class="table table-striped table-bordered text-center">
-                                <thead class="table-dark">
-                                    <tr>
-                                        <th>Producto</th>
-                                        <th>Imagen</th>
-                                        <th>Cantidad</th>
-                                        <th>Precio Unitario</th>
-                                        <th>Sub‑Total</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($productos as $row): ?>
-                                        <?php
-                                            /* (2) — precio unitario ya viene en $row['precio'] */
-                                            $precio_unitario = $row['precio_vta'];
-
-                                            for ($i = 0; $i < $row['cantidad']; $i++):
-                                        ?>
-                                            <tr>
-                                                <td><?= esc($row['nombre_prod']) ?></td>
-                                                <td><img width="100" height="55"
-                                                        src="<?= base_url('assets/uploads/' . esc($row['imagen'])) ?>"></td>
-                                                <td>1</td>
-                                                <td>$<?= number_format($precio_unitario, 2) ?></td>
-                                                <td>$<?= number_format($precio_unitario, 2) ?></td>
-                                            </tr>
-                                        <?php endfor; ?>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <?php endforeach; ?>
-
-        </div>
-
-        <!-- Subtotal global -->
-        <div class="mt-4 text-end">
-            <h4>Total : <span id="totalUsuarios">$0.00</span></h4>
-        </div>
-    </div>
-</div>
-
-<!-- Scripts -->
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
-
-<script>
-$(document).ready(function () {
-    // Inicializar DataTable para productos
-    var tabla = $('#tabla-productos').DataTable({
-    dom: 'rt',          // sin buscador/paginador generados por DT
-    order: [[2, 'asc']],// ordena por “Nombre Producto”
-    pageLength: 50      // ↑ mostrá 50 filas (podés poner paging:false)
-    });
-
-    // Filtro personalizado por nombre de producto
-    $('#buscador-productos').on('keyup', function () {
-        tabla.column(2).search(this.value).draw();
-        updateTotalProductos();
-    });
-
-    //Cambia la vista
-   $('#vistaSelect').on('change', function () {
-        if (this.value === 'productos') {
-            $('#vista-productos').show();
-            $('#vista-usuarios').hide();
-            updateTotalProductos();      // <-- recalcula total de productos
-        } else {
-            $('#vista-productos').hide();
-            $('#vista-usuarios').show();
-            updateTotalUsuarios();       // <-- recalcula total de usuarios
-        }
-    });
-
-    // Filtro por nombre de usuario
-    $('#buscador-usuarios').on('keyup', function () {
-        var search = $(this).val().toLowerCase();
-        $('.venta-item').each(function () {
-            var usuario = $(this).data('usuario');
-            $(this).toggle(usuario.includes(search));
-        });
-        updateTotalUsuarios();
-    });
-
-    // Total para vista productos
-function updateTotalProductos () {
-  let total = 0;
-
-  $('#tabla-productos tbody tr:visible').each(function () {
-    // Texto crudo del último <td>
-    let txt = $(this).find('td:last').text();
-
-    /* 1)  Eliminar todo lo que no sea dígito, punto o coma
-       2)  Quitar TODOS los separadores de miles (coma o punto)
-       3)  Convertir la coma decimal (si existiera) en punto
-       —Con esto cubrís ambas notaciones: 1,234.56  ó 1.234,56  */
-    let limpio = txt
-      .replace(/[^0-9.,-]/g, '')   // quita símbolos de moneda y espacios
-      .replace(/(?<=\d)[,.](?=\d{3}(?:[^\d]|$))/g, '') // borra miles
-      .replace(',', '.');          // deja un único punto decimal
-
-    const num = parseFloat(limpio);
-    if (!isNaN(num)) total += num;
-  });
-
-  $('#totalProductos').text(
-    '$' + total.toLocaleString(undefined, { minimumFractionDigits: 2 })
-  );
+<?php
+// ----------------------------------------------------
+// AGRUPAR por Fecha (YYYY-MM-DD) + Usuario
+// ----------------------------------------------------
+function fechaKey($row) {
+    // usa 'fecha' de la cabecera; si se llama distinto, cambiá aquí
+    $raw = $row['fecha'] ?? $row['fecha_venta'] ?? $row['created_at'] ?? null;
+    if (!$raw) return null;
+    try {
+        $dt = new DateTime($raw);
+        return $dt->format('Y-m-d');
+    } catch (Throwable $e) {
+        return substr($raw, 0, 10);
+    }
 }
 
+function fechaHumana($key) {
+    if (!$key) return 'Sin fecha';
+    $p = explode('-', $key);
+    if (count($p) === 3) return "{$p[2]}/{$p[1]}/{$p[0]}";
+    return $key;
+}
 
-    // Total para vista usuarios
-    function updateTotalUsuarios() {
-        var total = 0;
-        $('.venta-item:visible').each(function () {
-            var header = $(this).find('button').text();
-            var match = header.match(/Total:\s*\$([0-9\.,]+)/);
-            if (match) {
-                total += parseFloat(match[1].replace(/,/g, '')) || 0;
-            }
-        });
-        $('#totalUsuarios').text('$' + total.toLocaleString(undefined, {minimumFractionDigits: 2}));
+$grupos = []; // clave: "$fechaKey|$usuario"
+foreach ($venta as $row) {
+    $fk = fechaKey($row);
+    $usuario = $row['nombre'] ?? 'Sin usuario';
+    $precio_unit = isset($row['precio_vta']) ? (float)$row['precio_vta'] : (float)($row['precio'] ?? 0);
+    $cantidad = max(1, (int)($row['cantidad'] ?? 1));
+    $clave = ($fk ?? 'nofecha') . '|' . $usuario;
+
+    if (!isset($grupos[$clave])) {
+        $grupos[$clave] = [
+            'fechaKey' => $fk,
+            'fechaHuman' => fechaHumana($fk),
+            'usuario' => $usuario,
+            'items' => []
+        ];
     }
-    
-    // Calcular totales al cargar
-    updateTotalProductos();
-    updateTotalUsuarios();
+
+    // duplicar por unidad (1x1)
+    for ($i = 0; $i < $cantidad; $i++) {
+      $grupos[$clave]['items'][] = [
+        'nombre_prod' => $row['nombre_prod'],
+        'imagen' => $row['imagen'],
+        'precio_unit' => $precio_unit
+      ];
+    }
+}
+
+// ordenar por fecha desc, luego usuario
+uasort($grupos, function($a, $b){
+    $fa = $a['fechaKey'] ?? '';
+    $fb = $b['fechaKey'] ?? '';
+    if ($fa === $fb) return strcmp($a['usuario'], $b['usuario']);
+    return strcmp($fb, $fa);
+});
+?>
+
+<div class="container my-4">
+  <h1 class="text-center mb-4">Ventas (por Fecha y Usuario)</h1>
+
+  <!-- FILTRO RANGO DE FECHAS -->
+  <div class="row g-2 align-items-end mb-3">
+    <div class="col-sm-6 col-md-3">
+      <label for="fechaDesde" class="form-label"><strong>Desde</strong></label>
+      <input type="date" id="fechaDesde" class="form-control">
+    </div>
+    <div class="col-sm-6 col-md-3">
+      <label for="fechaHasta" class="form-label"><strong>Hasta</strong></label>
+      <input type="date" id="fechaHasta" class="form-control">
+    </div>
+    <div class="col-sm-6 col-md-2">
+      <button id="btnAplicar" class="btn btn-primary w-100">Aplicar</button>
+    </div>
+    <div class="col-sm-6 col-md-2">
+      <button id="btnLimpiar" class="btn btn-secondary w-100">Limpiar</button>
+    </div>
+  </div>
+
+  <!-- LISTA: GRUPOS (cada grupo ya expandido, sin acordeón) -->
+  <div id="listaGrupos">
+    <?php foreach ($grupos as $gkey => $g): ?>
+      <?php
+        // total del grupo
+        $totalGrupo = 0.0;
+        foreach ($g['items'] as $it) $totalGrupo += (float)$it['precio_unit'];
+      ?>
+      <div class="card mb-3 grupo-venta" data-fecha="<?= esc($g['fechaKey'] ?? '') ?>">
+        <div class="card-header d-flex justify-content-between flex-wrap">
+          <div>
+            <strong>Fecha:</strong> <?= esc($g['fechaHuman']) ?>
+            &nbsp; | &nbsp;
+            <strong>Usuario:</strong> <?= esc($g['usuario']) ?>
+          </div>
+          <div>
+            <strong>Total del grupo:</strong> $<?= number_format($totalGrupo, 2) ?>
+          </div>
+        </div>
+
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="table table-striped table-bordered table-sm m-0 align-middle">
+              <thead class="table-dark">
+                <tr class="text-center">
+                  <th style="width: 40%;">Producto</th>
+                  <th style="width: 20%;">Imagen</th>
+                  <th style="width: 20%;">Precio Unitario</th>
+                  <th style="width: 20%;">Sub-Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($g['items'] as $it): ?>
+                  <tr class="prod-row text-center" data-valor="<?= htmlspecialchars(number_format($it['precio_unit'], 2, '.', ''), ENT_QUOTES) ?>">
+                    <td><?= esc($it['nombre_prod']) ?></td>
+                    <td>
+                      <img src="<?= base_url('assets/uploads/' . esc($it['imagen'])) ?>" alt=""
+                        width="100" height="55" style="object-fit:cover">
+                    </td>
+                    <td>$<?= number_format($it['precio_unit'], 2) ?></td>
+                    <td>$<?= number_format($it['precio_unit'], 2) ?></td>
+                  </tr>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    <?php endforeach; ?>
+  </div>
+
+  <!-- SUBTOTAL GLOBAL DINÁMICO -->
+  <div class="mt-4 text-end">
+    <h4>Subtotal mostrado: <span id="totalGeneral">$0.00</span></h4>
+  </div>
+
+</div>
+
+<!-- SCRIPTS (una sola vez) -->
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+$(function(){
+
+  // parse YYYY-MM-DD to Date (local, midnight)
+  function parseYmd(ymd) {
+    if (!ymd) return null;
+    var p = ymd.split('-');
+    if (p.length !== 3) return null;
+    return new Date(p[0], parseInt(p[1],10)-1, p[2]);
+  }
+
+  function isDateInRange(fechaYmd, desdeVal, hastaVal) {
+    if (!fechaYmd) return false;
+    var f = parseYmd(fechaYmd);
+    var desde = desdeVal ? parseYmd(desdeVal) : null;
+    var hasta = hastaVal ? parseYmd(hastaVal) : null;
+    if (!desde && !hasta) return true;
+    if (desde && hasta) return (f >= desde && f <= hasta);
+    if (desde) return (f >= desde);
+    if (hasta) return (f <= hasta);
+    return true;
+  }
+
+  // sumar solo productos visibles
+  function actualizarTotal() {
+    var total = 0;
+    $('.grupo-venta:visible').each(function(){
+      $(this).find('.prod-row').each(function(){
+        var v = parseFloat($(this).data('valor')) || 0;
+        total += v;
+      });
+    });
+    $('#totalGeneral').text('$' + total.toLocaleString(undefined, {minimumFractionDigits: 2}));
+  }
+
+  function aplicarFiltroRango() {
+    var desdeVal = $('#fechaDesde').val();
+    var hastaVal = $('#fechaHasta').val();
+
+    if (!desdeVal && !hastaVal) {
+      $('.grupo-venta').show();
+    } else {
+      $('.grupo-venta').each(function(){
+        var f = $(this).data('fecha'); // YYYY-MM-DD or ''
+        $(this).toggle(isDateInRange(f, desdeVal, hastaVal));
+      });
+    }
+    actualizarTotal();
+  }
+
+  $('#btnAplicar').on('click', aplicarFiltroRango);
+  $('#btnLimpiar').on('click', function(){
+    $('#fechaDesde').val('');
+    $('#fechaHasta').val('');
+    aplicarFiltroRango();
+  });
+
+  // total inicial
+  actualizarTotal();
+
+  // si querés aplicar automáticamente al cambiar la fecha sin botón:
+  // $('#fechaDesde, #fechaHasta').on('change', aplicarFiltroRango);
+
 });
 </script>
 
