@@ -21,21 +21,14 @@
                     <?php endif; ?>
                 </div>
 
-                <!-- Categoría -->
+               <!-- Categoría -->
                 <div class="mb-2">
-                    <label for="categoria" class="form-label">Categoria</label>
+                    <label for="categoria" class="form-label">Categoría</label>
                     <select class="form-control" name="categoria" id="categoria">
-                        <option value="<?php
-                                foreach ($categorias as $cat) {
-                                    if ($cat['id'] == $producto['categoria_id']) {
-                                        echo $cat['descripcion'];
-                                        break;
-                                    }
-                                }
-                            ?>" selected>
-                        </option>
                         <?php foreach ($categorias as $categoria): ?>
-                            <option value="<?= $categoria['id']; ?>" <?= set_select('categoria', $categoria['id']); ?>>
+                            <option value="<?= $categoria['id']; ?>" 
+                                <?= ($categoria['id'] == $producto['categoria_id']) ? 'selected' : ''; ?>
+                            >
                                 <?= $categoria['id'] . ". " . $categoria['descripcion']; ?>
                             </option>
                         <?php endforeach; ?>
