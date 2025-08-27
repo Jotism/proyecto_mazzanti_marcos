@@ -94,9 +94,11 @@
                   <li class="nav-item">
                     <a class="nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/Comercializacion">Comercialización</a>
                   </li>
+                  <?php if(isset($_SESSION['usuario'])): ?>
                   <li class="nav-item">
-                    <a class="nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/muestra">Carrito</a>
-                  </li>                              
+                      <a class="nav-link text-light txt-menu" href="/proyecto_mazzanti_marcos/muestra">Carrito</a>
+                  </li>
+                  <?php endif; ?>                             
               </ul>
             </div>
           </div>
