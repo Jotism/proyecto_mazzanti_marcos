@@ -47,26 +47,37 @@ class Consultas_controller extends Controller
     }
 
     public function guardar_consulta() {
+        $validation = \Config\Services::validation();
+
+        $rules = [
+            'nombre'   => 'required|min_length[2]|max_length[50]',
+            'apellido' => 'required|min_length[2]|max_length[50]',
+            'email'    => 'required|valid_email',
+            'telefono' => 'required|numeric|min_length[7]|max_length[15]',
+            'mensaje'  => 'required|min_length[5]|max_length[500]'
+        ];
+
+        if (! $this->validate($rules)) {
+            return redirect()->back()->withInput()
+                            ->with('errors', $validation->getErrors());
+        }
 
         $model = new Consulta_model();
 
         $data = [
-        'nombre'    => $this->request->getPost('nombre'),
-        'apellido'  => $this->request->getPost('apellido'),
-        'email'     => $this->request->getPost('email'),
-        'telefono'  => $this->request->getPost('telefono'),
-        'mensaje'   => $this->request->getPost('mensaje'),
-        'respuesta' => 'NO'
+            'nombre'    => $this->request->getPost('nombre'),
+            'apellido'  => $this->request->getPost('apellido'),
+            'email'     => $this->request->getPost('email'),
+            'telefono'  => $this->request->getPost('telefono'),
+            'mensaje'   => $this->request->getPost('mensaje'),
+            'respuesta' => 'NO'
         ];
 
         $model->insert($data);
+
         return redirect()->to(base_url('/'))->with('mensaje', 'Consulta enviada correctamente');
-        //Chatgot hacer metodo ver vista consulta
     }
 
-    public function obtenerConsultasPorEmail($email){
-        return $this->where('email', $email)->findAll();
-    }
 
 
     public function vista_consulta_cliente() {

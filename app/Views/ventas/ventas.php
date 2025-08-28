@@ -91,7 +91,7 @@ uasort($grupos, function($a, $b){
     </div>
   </div>
 
-  <!-- LISTA: GRUPOS (cada grupo ya expandido, sin acordeón) -->
+  <!-- LISTA: GRUPOS -->
   <div id="listaGrupos">
     <?php foreach ($grupos as $gkey => $g): ?>
       <?php
@@ -150,77 +150,69 @@ uasort($grupos, function($a, $b){
 
 </div>
 
-<!-- SCRIPTS (una sola vez) -->
-
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> 
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script> 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-$(function(){
+    $(function(){
+      // funciones parseYmd, isDateInRange, actualizarTotal, aplicarFiltroRango
+      function parseYmd(ymd) {
+        if (!ymd) return null;
+        var p = ymd.split('-');
+        if (p.length !== 3) return null;
+        return new Date(p[0], parseInt(p[1],10)-1, p[2]);
+      }
 
-  // parse YYYY-MM-DD to Date (local, midnight)
-  function parseYmd(ymd) {
-    if (!ymd) return null;
-    var p = ymd.split('-');
-    if (p.length !== 3) return null;
-    return new Date(p[0], parseInt(p[1],10)-1, p[2]);
-  }
+      function isDateInRange(fechaYmd, desdeVal, hastaVal) {
+        if (!fechaYmd) return false;
+        var f = parseYmd(fechaYmd);
+        var desde = desdeVal ? parseYmd(desdeVal) : null;
+        var hasta = hastaVal ? parseYmd(hastaVal) : null;
+        if (!desde && !hasta) return true;
+        if (desde && hasta) return (f >= desde && f <= hasta);
+        if (desde) return (f >= desde);
+        if (hasta) return (f <= hasta);
+        return true;
+      }
 
-  function isDateInRange(fechaYmd, desdeVal, hastaVal) {
-    if (!fechaYmd) return false;
-    var f = parseYmd(fechaYmd);
-    var desde = desdeVal ? parseYmd(desdeVal) : null;
-    var hasta = hastaVal ? parseYmd(hastaVal) : null;
-    if (!desde && !hasta) return true;
-    if (desde && hasta) return (f >= desde && f <= hasta);
-    if (desde) return (f >= desde);
-    if (hasta) return (f <= hasta);
-    return true;
-  }
+      function actualizarTotal() {
+        var total = 0;
+        $('.grupo-venta:visible').each(function(){
+          $(this).find('.prod-row').each(function(){
+            var v = parseFloat($(this).data('valor')) || 0;
+            total += v;
+          });
+        });
+        $('#totalGeneral').text('$' + total.toLocaleString(undefined, {minimumFractionDigits: 2}));
+      }
 
-  // sumar solo productos visibles
-  function actualizarTotal() {
-    var total = 0;
-    $('.grupo-venta:visible').each(function(){
-      $(this).find('.prod-row').each(function(){
-        var v = parseFloat($(this).data('valor')) || 0;
-        total += v;
+      function aplicarFiltroRango() {
+        var desdeVal = $('#fechaDesde').val();
+        var hastaVal = $('#fechaHasta').val();
+
+        if (!desdeVal && !hastaVal) {
+          $('.grupo-venta').show();
+        } else {
+          $('.grupo-venta').each(function(){
+            var f = $(this).data('fecha');
+            $(this).toggle(isDateInRange(f, desdeVal, hastaVal));
+          });
+        }
+        actualizarTotal();
+      }
+
+      $('#btnAplicar').on('click', aplicarFiltroRango);
+      $('#btnLimpiar').on('click', function(){
+        $('#fechaDesde').val('');
+        $('#fechaHasta').val('');
+        aplicarFiltroRango();
       });
+
+      // total inicial
+      actualizarTotal();
     });
-    $('#totalGeneral').text('$' + total.toLocaleString(undefined, {minimumFractionDigits: 2}));
-  }
-
-  function aplicarFiltroRango() {
-    var desdeVal = $('#fechaDesde').val();
-    var hastaVal = $('#fechaHasta').val();
-
-    if (!desdeVal && !hastaVal) {
-      $('.grupo-venta').show();
-    } else {
-      $('.grupo-venta').each(function(){
-        var f = $(this).data('fecha'); // YYYY-MM-DD or ''
-        $(this).toggle(isDateInRange(f, desdeVal, hastaVal));
-      });
-    }
-    actualizarTotal();
-  }
-
-  $('#btnAplicar').on('click', aplicarFiltroRango);
-  $('#btnLimpiar').on('click', function(){
-    $('#fechaDesde').val('');
-    $('#fechaHasta').val('');
-    aplicarFiltroRango();
-  });
-
-  // total inicial
-  actualizarTotal();
-
-  // si querés aplicar automáticamente al cambiar la fecha sin botón:
-  // $('#fechaDesde, #fechaHasta').on('change', aplicarFiltroRango);
-
-});
-</script>
+  </script>
 
 <?php } ?>

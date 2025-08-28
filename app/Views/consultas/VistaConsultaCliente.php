@@ -1,25 +1,35 @@
 <div class="container mt-5">
     <h2 class="text-center">Enviar consulta</h2>
+
+    <?php if(session()->getFlashdata('errors')): ?>
+        <div class="alert alert-danger">
+            <ul>
+                <?php foreach(session()->getFlashdata('errors') as $error): ?>
+                    <li><?= esc($error) ?></li>
+                <?php endforeach ?>
+            </ul>
+        </div>
+    <?php endif; ?>
+
     <form action="<?= base_url('guardar_consulta') ?>" method="post">
         <div class="form-group">
             <label>Nombre</label>
-            <input type="text" name="nombre" class="form-control" required>
+            <input type="text" name="nombre" class="form-control" value="<?= old('nombre') ?>" required>
         </div>
         <div class="form-group">
             <label>Apellido</label>
-            <input type="text" name="apellido" class="form-control" required>
+            <input type="text" name="apellido" class="form-control" value="<?= old('apellido') ?>" required>
         </div>
 
         <input type="hidden" name="email" value="<?= esc($email) ?>">
-        <input type="hidden" name="email" value="<?= esc($email) ?>">
-        
+
         <div class="form-group">
             <label>Teléfono</label>
-            <input type="text" name="telefono" class="form-control" required>
+            <input type="text" name="telefono" class="form-control" value="<?= old('telefono') ?>" required>
         </div>
         <div class="form-group">
             <label>Mensaje</label>
-            <textarea name="mensaje" class="form-control" rows="4" required></textarea>
+            <textarea name="mensaje" class="form-control" rows="4" required><?= old('mensaje') ?></textarea>
         </div>
         <button type="submit" class="btn btn-primary mt-3">Enviar consulta</button>
     </form>
@@ -58,6 +68,5 @@
 <?php else: ?>
     <p class="text-center mt-4">No realizaste consultas aún.</p>
 <?php endif; ?>
-
 
 

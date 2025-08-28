@@ -23,7 +23,14 @@
     </ul>
 
     <h3 class = "titulos-contacto">Consultas</h3>
-    <p>Si deseas hacer una <strong>consulta específica</strong>, te recomendamos registrarte o iniciar sesión, lo que habilitará una sección donde podrás contarnos tu duda.</p>
+    <p>
+    Si deseas hacer una 
+        <a href="/proyecto_mazzanti_marcos/Consultas-Cliente">
+            <strong>consulta específica</strong>
+        </a>, 
+        te recomendamos registrarte o iniciar sesión, lo que habilitará una sección donde podrás contarnos tu duda.
+    </p>
+
     <p>También te invitamos a visitarnos personalmente en nuestro local,
        donde podrás ver todos los modelos disponibles y recibir atención personalizada de nuestro equipo especializado. ¡Te esperamos!</p>
 </div>

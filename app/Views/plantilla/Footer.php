@@ -1,7 +1,6 @@
  <script src=<?= base_url('assets/js/bootstrap.bundle.min.js') ?>></script>
  </br>
  </br>
-  </body>
   <footer class="bg-secondary">
   <div class="container text-center">
     <div class="row row-cols-3">
@@ -28,4 +27,5 @@
     </div>
   </div>
 </footer>
+</body>
 </html>
