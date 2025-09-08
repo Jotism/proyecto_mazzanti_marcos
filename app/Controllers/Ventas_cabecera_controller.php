@@ -13,46 +13,70 @@ class Ventas_cabecera_controller extends Controller
     {
         $session = session();
         require(APPPATH . 'Controllers/carrito_controller.php');
-        $cartController = new carrito_controller();
+        $cartController = new carrito_controller(); // instancia
         $carrito_contents = $cartController->devolver_carrito();
 
-        $productoModel = new Productos_model();
-        $ventasModel = new Ventas_cabecera_model();
-        $detalleModel = new Ventas_detalle_model();
+        $productoModel = new Producto_model();
+        $ventasModel   = new Ventas_cabecera_model();
+        $detalleModel  = new Ventas_detalle_model();
 
-        $carritoController = new Carrito_controller();
-        $datos_validados = $carritoController->validar_productos();
+        $productos_validos   = [];
+        $productos_sin_stock = [];
+        $total = 0;
 
-        
-        $productos_validos = $datos_validados['productos_validos'];
-        $productos_sin_stock = $datos_validados['productos_sin_stock'];
-        $total = $datos_validados['total'];
-        
-        
+        // Validar stock y filtrar productos válidos
+        foreach ($carrito_contents as $item) {
+            $producto = $productoModel->getProducto($item['id']);
+
+            if ($producto && $producto['stock'] >= $item['qty']) {
+                $productos_validos[] = $item;
+                $total += $item['subtotal'];
+            } else {
+                $productos_sin_stock[] = $item['name'];
+                // Eliminar del carrito el producto sin stock
+                $cartController->eliminar_item($item['rowid']);
+            }
+        }
+
+        // Si hay productos sin stock, avisar y volver al carrito
+        if (!empty($productos_sin_stock)) {
+            $mensaje = 'Los siguientes productos no tienen stock suficiente y fueron eliminados del carrito: <br>'
+                . implode(', ', $productos_sin_stock);
+            $session->setFlashdata('mensaje', $mensaje);
+            return redirect()->to(base_url('muestro'));
+        }
+
+        // Si no hay productos válidos, no se registra la venta
         if (empty($productos_validos)) {
-            return redirect()->to('/muestra')->with('error', 'No hay productos con stock suficiente.');
+            $session->setFlashdata('mensaje', 'No hay productos válidos para registrar la venta.');
+            return redirect()->to(base_url('muestro'));
         }
 
-        $venta_id = $ventasModel->insert([
-            'fecha' => date('Y-m-d'),
-            'usuario_id' => $session->get('id'),
+        // Registrar cabecera de la venta
+        $nueva_venta = [
+            'usuario_id'  => $session->get('id_usuario'),
             'total_venta' => $total
-        ]);
+        ];
+        $venta_id = $ventasModel->insert($nueva_venta);
 
+        // Registrar detalle y actualizar stock
         foreach ($productos_validos as $item) {
-            $detalleModel->insert([
-                'venta_id' => $venta_id,
+            $detalle = [
+                'venta_id'    => $venta_id,
                 'producto_id' => $item['id'],
-                'cantidad' => $item['qty'],
-                'precio' => $item['price']
-            ]);
+                'cantidad'    => $item['qty'],
+                'precio'      => $item['subtotal']
+            ];
+            $detalleModel->insert($detalle);
 
-            $productoModel->updateStock($item['id'], -$item['qty']);
+            $producto = $productoModel->getProducto($item['id']);
+            $productoModel->updateStock($item['id'], $producto['stock'] - $item['qty']);
         }
 
+        // Vaciar carrito y mostrar confirmación
         $cartController->borrar_carrito();
-
-        return redirect()->to('vista_compras/' . $venta_id);
+        $session->setFlashdata('mensaje', 'Venta registrada exitosamente.');
+        return redirect()->to(base_url('vista_compras/' . $venta_id));
     }
 
     public function ver_facturas_usuario($id_usuario)

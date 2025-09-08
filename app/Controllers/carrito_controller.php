@@ -70,7 +70,8 @@ class carrito_controller extends BaseController
         $cart = \Config\Services::Cart();  
         $cart->destroy();  
         return redirect()->to(base_url('muestra'));  
-    }  
+    }
+     
     public function remove($rowid)  
     {  
         $cart = \Config\Services::cart();  
@@ -135,34 +136,5 @@ class carrito_controller extends BaseController
             }  
         }
         return redirect()->to('muestra');  
-    }
-
-    public function validar_productos()
-    {
-        $productoModel = new \App\Models\Productos_model();
-        $cart = \Config\Services::cart();
-        $carrito_contents = $cart->contents();
-
-        $productos_validos = [];
-        $productos_sin_stock = [];
-        $total = 0;
-
-        foreach ($carrito_contents as $item) {
-            $producto = $productoModel->getProducto($item['id']);
-
-            if ($producto && $producto['stock'] >= $item['qty']) {
-                $productos_validos[] = $item;
-                $total += $item['subtotal'];
-            } else {
-                $productos_sin_stock[] = $item['name'];
-                $this->eliminar_item($item['rowid']);
-            }
-        }
-        
-        return [
-            'productos_validos' => $productos_validos,
-            'productos_sin_stock' => $productos_sin_stock,
-            'total' => $total,
-        ];
     }
 }
