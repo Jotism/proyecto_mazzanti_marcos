@@ -16,7 +16,7 @@ class Ventas_cabecera_controller extends Controller
         $cartController = new carrito_controller(); // instancia
         $carrito_contents = $cartController->devolver_carrito();
 
-        $productoModel = new Producto_model();
+        $productoModel = new Productos_model();
         $ventasModel   = new Ventas_cabecera_model();
         $detalleModel  = new Ventas_detalle_model();
 
@@ -43,7 +43,7 @@ class Ventas_cabecera_controller extends Controller
             $mensaje = 'Los siguientes productos no tienen stock suficiente y fueron eliminados del carrito: <br>'
                 . implode(', ', $productos_sin_stock);
             $session->setFlashdata('mensaje', $mensaje);
-            return redirect()->to(base_url('muestro'));
+            return redirect()->to(base_url('muestra'));
         }
 
         // Si no hay productos válidos, no se registra la venta
@@ -54,7 +54,7 @@ class Ventas_cabecera_controller extends Controller
 
         // Registrar cabecera de la venta
         $nueva_venta = [
-            'usuario_id'  => $session->get('id_usuario'),
+            'usuario_id'  => $session->get('id'),
             'total_venta' => $total
         ];
         $venta_id = $ventasModel->insert($nueva_venta);

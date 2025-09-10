@@ -3,7 +3,7 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use App\Models\Usuarios_model;
-use App\Models\Producto_Model;
+use App\Models\Productos_Model;
 use App\Models\Ventas_cabecera_model;
 use App\Models\Ventas_detalle_model;
 
@@ -42,21 +42,31 @@ class carrito_controller extends BaseController
         echo view('plantilla\Footer');
     }  
 
-    public function add() //agregar productos al carrito  
-    {  
-        $request = \Config\Services::request(); //trae todo lo que se envia por POST  
-        $cart = \Config\Services::Cart(); //devuelve una instancia del carrito  
+    public function add()
+    {
+        $request = \Config\Services::request();
+        $session = session();
+        $cart    = \Config\Services::cart();
 
-        $cart->insert([  
-            'id'    => $request->getPost('id'),  
-            'qty'   => 1,  
-            'name'  => $request->getPost('nombre_prod'),  
-            'price' => $request->getPost('precio_vta'),  
-            'imagen' => $request->getPost('imagen')
-        ]);  
+        $id = $request->getPost('id');
+        
+        if ($this->hayStock($id)) {
+            $cart->insert([
+                'id'     => $id,
+                'qty'    => 1,
+                'name'   => $request->getPost('nombre_prod'),
+                'price'  => $request->getPost('precio_vta'),
+                'imagen' => $request->getPost('imagen'),
+            ]);
 
-        return redirect()->back()->withInput();  
-    }  
+            $session->setFlashdata('mensaje', 'Producto agregado al carrito.');
+        } else {
+            $session->setFlashdata('mensaje', 'El producto que intento agregar no tiene stock disponible.');
+        }
+
+        return redirect()->back()->withInput();
+    }
+
 
     public function eliminar_item($rowid)  
     {  
@@ -110,11 +120,13 @@ class carrito_controller extends BaseController
         // suma 1 a la cantidad del producto  
         $cart = \Config\Services::cart();  
         $item = $cart->getItem($rowid);  
-        if ($item) {  
-            $cart->update([  
-                'rowid' => $rowid,  
-                'qty'   => $item['qty'] + 1  
-            ]);  
+        if ($item) {
+            if ($this->hayStock($item['id'])) {
+                $cart->update([  
+                    'rowid' => $rowid,  
+                    'qty'   => $item['qty'] + 1  
+                ]);
+            }
         }  
         return redirect()->to('muestra');  
     }  
@@ -137,4 +149,36 @@ class carrito_controller extends BaseController
         }
         return redirect()->to('muestra');  
     }
+
+    private function buscarCantidadProducto($idProducto)
+    {
+        $cart = \Config\Services::cart();
+
+        $cantidad = 0;
+
+        foreach ($cart->contents() as $item) {
+
+            if ((int)$item['id'] == $idProducto) {
+                $cantidad = $cantidad + $item['qty'];
+            }
+        }
+        return $cantidad;
+    }
+
+    private function hayStock($id)
+    {
+        $productoModel = new Productos_model();
+
+        $producto = $productoModel->getProducto($id);
+        $stock = $producto['stock'];
+
+        $cantidadEnCarrito = $this->buscarCantidadProducto($id);
+        
+        if ($cantidadEnCarrito < $stock) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }
