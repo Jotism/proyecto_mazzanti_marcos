@@ -195,49 +195,82 @@ class Productos_controller extends Controller
     }
 
     public function catalogo_filtrado(){
+        
         $productoModel = new Productos_model();
         $categoriaModel = new Categorias_model();
 
         $categoria_id = $this->request->getGet('categoria');
+        $ordenPrecio = $this->request->getGet('ordenPrecio'); // asc o desc
 
+        // Filtrar por categoría
         if ($categoria_id) {
-            $data['productos'] = $productoModel->getProductosPorCategoria($categoria_id);
+            $productos = $productoModel->getProductosPorCategoria($categoria_id);
             $data['categoriaSeleccionada'] = $categoria_id;
         } else {
-            $data['productos'] = $productoModel->getProductoAll();
+            $productos = $productoModel->getProductoAll();
             $data['categoriaSeleccionada'] = '';
         }
 
+        // Ordenar por precio si se seleccionó
+        if ($ordenPrecio == 'asc') {
+            usort($productos, function($a, $b) {
+                return $a['precio_vta'] <=> $b['precio_vta'];
+            });
+        } elseif ($ordenPrecio == 'desc') {
+            usort($productos, function($a, $b) {
+                return $b['precio_vta'] <=> $a['precio_vta'];
+            });
+        }
+
+        $data['productos'] = $productos;
         $data['categorias'] = $categoriaModel->getCategorias();
+        $data['ordenPrecio'] = $ordenPrecio;
 
         echo view('plantilla/Header', ['titulo' => 'Catálogo Filtrado']);
         echo view('Catalogo', $data);
         echo view('plantilla/Footer');
     }
 
+
     public function catalogo()
-    {
-        $productoModel = new Productos_model();
-        $categoriaModel = new Categorias_model();
+{
+    $productoModel = new Productos_model();
+    $categoriaModel = new Categorias_model();
 
-        // Obtener el filtro de categoría si existe
-        $categoriaSeleccionada = $this->request->getGet('categoria');
+    // Obtener filtros de GET
+    $categoriaSeleccionada = $this->request->getGet('categoria');
+    $ordenPrecio = $this->request->getGet('ordenPrecio'); // "asc" o "desc"
 
-        // Obtener categorías para el dropdown
-        $data['categorias'] = $categoriaModel->getCategorias();
-        $data['categoriaSeleccionada'] = $categoriaSeleccionada;
+    // Obtener categorías para el dropdown
+    $data['categorias'] = $categoriaModel->getCategorias();
+    $data['categoriaSeleccionada'] = $categoriaSeleccionada;
+    $data['ordenPrecio'] = $ordenPrecio;
 
-        // Productos filtrados o todos
-        if ($categoriaSeleccionada) {
-            $data['productos'] = $productoModel->getProductosPorCategoria($categoriaSeleccionada);
-        } else {
-            $data['productos'] = $productoModel->getProductoAll();
-        }
-
-        echo view('plantilla/Header', ['titulo' => 'Catálogo']);
-        echo view('Catalogo', $data);
-        echo view('plantilla/Footer');
+    // Filtrar productos
+    if ($categoriaSeleccionada) {
+        $productos = $productoModel->getProductosPorCategoria($categoriaSeleccionada);
+    } else {
+        $productos = $productoModel->getProductoAll();
     }
+
+    // Ordenar por precio si se seleccionó
+    if ($ordenPrecio == 'asc') {
+        usort($productos, function($a, $b) {
+            return $a['precio_vta'] <=> $b['precio_vta'];
+        });
+    } elseif ($ordenPrecio == 'desc') {
+        usort($productos, function($a, $b) {
+            return $b['precio_vta'] <=> $a['precio_vta'];
+        });
+    }
+
+    $data['productos'] = $productos;
+
+    echo view('plantilla/Header', ['titulo' => 'Catálogo']);
+    echo view('Catalogo', $data);
+    echo view('plantilla/Footer');
+}
+
 
 }
 
