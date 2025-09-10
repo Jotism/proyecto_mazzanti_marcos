@@ -246,7 +246,7 @@ class Productos_controller extends Controller
     $data['categoriaSeleccionada'] = $categoriaSeleccionada;
     $data['ordenPrecio'] = $ordenPrecio;
 
-    // Filtrar productos
+    
     if ($categoriaSeleccionada) {
         $productos = $productoModel->getProductosPorCategoria($categoriaSeleccionada);
     } else {

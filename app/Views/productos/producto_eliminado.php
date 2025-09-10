@@ -7,54 +7,70 @@
         <a href="<?= base_url('/crear') ?>" class="btn btn-primary justify-content-end mb-3">Ir a productos activos</a>
     </div>
     <?php if (isset($productos) && count($productos) > 0): ?>
-        <table class="table table-bordered table-hover align-middle">
-            <thead class="table-dark text-center">
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Precio</th>
-                    <th>Precio Venta</th>
-                    <th>Stock</th>
-                    <th>Imagen</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($productos as $prod): ?>
-                    <?php if ($prod['eliminado' ] == 'SI'): ?>
-                        <tr class="text-center">
-                            <td><?= esc($prod['id']) ?></td>
-                            <td><?= esc($prod['nombre_prod']) ?></td>
-                            <td>$<?= esc($prod['precio']) ?></td>
-                            <td>$<?= esc($prod['precio_vta']) ?></td>
-                            <td><?= esc($prod['stock']) ?></td>
-                            <td>
-                                <?php if (!empty($prod['imagen'])): ?>
-                                    <img src="<?= base_url('assets/uploads/' . $prod['imagen']) ?>" alt="Imagen del producto" class="img-thumbnail" style="width: 80px;">
-                                <?php else: ?>
-                                    <span class="text-muted">Sin imagen</span>
-                                <?php endif; ?>
-                            </td>
-                            <td>
-                                <a href="<?= base_url('editar/' . $prod['id']) ?>" class="btn btn-sm btn-outline-primary me-1">Editar</a>
-                                <?php if ($prod['eliminado'] == 'NO'): ?>
-                                    <a href="<?= base_url('borrar/' . $prod['id']) ?>" 
-                                    class="btn btn-sm btn-outline-danger btn-outline-success">
-                                    Desactivar
-                                    </a>
-                                <?php else: ?>
-                                    <a href="<?= base_url('activar_pro/' . $prod['id']) ?>" 
-                                    class="btn btn-sm btn-outline-danger btn-outline-success">
-                                    Activar
-                                    </a>
-                                <?php endif; ?>
-                            </td>
-                        </tr>
-                    <?php endif; ?>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover align-middle" id="productE-list">
+                <thead class="table-dark text-center">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Precio Venta</th>
+                        <th>Stock</th>
+                        <th>Imagen</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($productos as $prod): ?>
+                        <?php if ($prod['eliminado' ] == 'SI'): ?>
+                            <tr class="text-center">
+                                <td><?= esc($prod['id']) ?></td>
+                                <td><?= esc($prod['nombre_prod']) ?></td>
+                                <td>$<?= esc($prod['precio']) ?></td>
+                                <td>$<?= esc($prod['precio_vta']) ?></td>
+                                <td><?= esc($prod['stock']) ?></td>
+                                <td>
+                                    <?php if (!empty($prod['imagen'])): ?>
+                                        <img src="<?= base_url('assets/uploads/' . $prod['imagen']) ?>" alt="Imagen del producto" class="img-thumbnail" style="width: 80px;">
+                                    <?php else: ?>
+                                        <span class="text-muted">Sin imagen</span>
+                                    <?php endif; ?>
+                                </td>
+                                <td>
+                                    <a href="<?= base_url('editar/' . $prod['id']) ?>" class="btn btn-sm btn-outline-primary me-1">Editar</a>
+                                    <?php if ($prod['eliminado'] == 'NO'): ?>
+                                        <a href="<?= base_url('borrar/' . $prod['id']) ?>" 
+                                        class="btn btn-sm btn-outline-danger btn-outline-success">
+                                        Desactivar
+                                        </a>
+                                    <?php else: ?>
+                                        <a href="<?= base_url('activar_pro/' . $prod['id']) ?>" 
+                                        class="btn btn-sm btn-outline-danger btn-outline-success">
+                                        Activar
+                                        </a>
+                                    <?php endif; ?>
+                                </td>
+                            </tr>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
     <?php else: ?>
         <div class="alert alert-info">No hay productos cargados.</div>
     <?php endif; ?>
 </div>
+<!-- Scripts de jQuery y DataTables -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css"/>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    $('#productE-list').DataTable({
+      language: {
+        url: "//cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json"
+      }
+    });
+  });
+</script>

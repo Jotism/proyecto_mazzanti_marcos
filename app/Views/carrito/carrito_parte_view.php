@@ -2,8 +2,8 @@
 <div class="container-fluid" id="carrito">
     <div class="cart">
         <div class="heading">
-            <h2 class="text-center">Productos en tu Carrito</h2>
-            <br>
+        <h2 class="text-center">Productos en tu Carrito</h2>
+        <br>
         </div>
         <!-- Mostrar mensaje Flash si existe -->
         <?php if (session()->getFlashdata('mensaje')): ?>
@@ -13,45 +13,49 @@
         </div>
         <?php endif; ?>
     </div>
-</div>
+    </div>
 
-<div class="text-center">
+    <div class="text-center">
     <?php if (empty($cart)): ?>
         <br>
         <p>Para agregar productos al carrito, hacé clic en:</p>
         <a class="btn btn-warning text-dark mt-2" href="<?= base_url('/Catalogo') ?>">
-            <i class="fa-solid fa-circle-chevron-left"></i> Volver al catálogo
+        <i class="fa-solid fa-circle-chevron-left"></i> Volver al catálogo
         </a>
         <br><br><br><br><br><br><br><br>
     <?php endif; ?>
-</div>
-
-<?php if (!empty($cart)): ?>
-<form action="<?= base_url('carrito_actualiza') ?>" method="post">
+    </div>
+    
+    <?php if (!empty($cart)): ?>
+  <form action="<?= base_url('carrito_actualiza') ?>" method="post">
     <div class="container my-3">
         <div class="table-responsive">
             <table class="table table-hover table-dark">
-                <thead class="table-dark">
-                    <tr>
-                        <th>IMAGEN</th>
-                        <th>PRODUCTO</th>
-                        <th>PRECIO</th>
-                        <th>CANTIDAD</th>
-                        <th>TOTAL</th>
-                        <th>Cancelar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $gran_total = 0; ?>
-                    <?php foreach ($cart as $item): ?>
-                        <?php $gran_total += $item['price'] * $item['qty']; ?>
-                        <!-- Inputs ocultos -->
-                        <input type="hidden" name="cart[<?= esc($item['rowid']) ?>][id]" value="<?= esc($item['id']) ?>">
-                        <input type="hidden" name="cart[<?= esc($item['rowid']) ?>][rowid]" value="<?= esc($item['rowid']) ?>">
-                        <input type="hidden" name="cart[<?= esc($item['rowid']) ?>][name]" value="<?= esc($item['name']) ?>">
-                        <input type="hidden" name="cart[<?= esc($item['rowid']) ?>][price]" value="<?= esc($item['price']) ?>">
-                        <input type="hidden" name="cart[<?= esc($item['rowid']) ?>][qty]" value="<?= esc($item['qty']) ?>">
-                        <input type="hidden" name="cart[<?= esc($item['rowid']) ?>][imagen]" value="<?= esc($item['imagen']) ?>">
+        <thead class="table-dark">
+          <tr>
+            <th>IMAGEN</th>
+            <th>PRODUCTO</th>
+            <th>PRECIO</th>
+            <th>CANTIDAD</th>
+            <th>TOTAL</th>
+            <th>Cancelar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php $gran_total = 0; ?>
+          <?php foreach ($cart as $item): ?>
+            <?php
+              $gran_total += $item['price'] * $item['qty'];
+            ?>
+            <!-- con inputs ocultos, el usuario no ve esos datos pero el formulario los envía.-->
+            <input type="hidden" name="cart[<?= esc($item['rowid']) ?>][id]" value="<?= esc($item['id']) ?>">
+            <!-- usando esc() se asegura que los datos se pasen seguros para imprimir en Html -->
+            <!-- cart es un arreglo multidimensional -->
+            <input type="hidden" name="cart[<?= esc($item['rowid']) ?>][rowid]" value="<?= esc($item['rowid']) ?>">
+            <input type="hidden" name="cart[<?= esc($item['rowid']) ?>][name]" value="<?= esc($item['name']) ?>">
+            <input type="hidden" name="cart[<?= esc($item['rowid']) ?>][price]" value="<?= esc($item['price']) ?>">
+            <input type="hidden" name="cart[<?= esc($item['rowid']) ?>][qty]" value="<?= esc($item['qty']) ?>">
+            <input type="hidden" name="cart[<?= esc($item['rowid']) ?>][imagen]" value="<?= esc($item['imagen']) ?>">
 
                         <tr class="table-danger align-middle">
                             <td><img src="<?= base_url('assets/uploads/' . $item['imagen']) ?>" width="80" height="80"></td>
@@ -86,3 +90,4 @@
 <?php endif; ?>
 </div>
 <br>
+
