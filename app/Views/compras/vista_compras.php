@@ -24,46 +24,48 @@ if (empty($venta)) { ?>
 <div class="row">
     <div class="container">
         <div class="col-xl-12 col-xs-10">
-            <table class="table table-secondary table-responsive table-bordered table-striped rounded">
-                <thead>
-                    <tr class="text-center">
-                        <th>N° ORDEN</th>
-                        <th>NOMBRE PRODUCTO</th>
-                        <th>IMAGEN</th>
-                        <th>CANTIDAD</th>
-                        <th>COSTO</th>
-                        <th>COSTO SUB-TOTAL</th>
+            <!-- Scroll horizontal para pantallas chicas -->
+            <div class="table-responsive">
+                <table class="table table-secondary table-bordered table-striped rounded">
+                    <thead>
+                        <tr class="text-center">
+                            <th>N° ORDEN</th>
+                            <th>NOMBRE PRODUCTO</th>
+                            <th>IMAGEN</th>
+                            <th>CANTIDAD</th>
+                            <th>COSTO</th>
+                            <th>COSTO SUB-TOTAL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $i = 1;
+                        $total = 0;
+                        // Si es array de ventas y no está vacío
+                        if (!empty($venta) && is_array($venta)) {
+                            foreach ($venta as $row) {
+                                $imagen = $row['imagen'];
+                        ?>
+                        <tr class="text-center">
+                            <th><?= $i++ ?></th>
+                            <td><?= $row['nombre_prod'] ?></td>
+                            <td><img width="100" height="65" src="<?= base_url('assets/uploads/' . $imagen) ?>"></td>
+                            <td><?= number_format($row['cantidad']) ?></td>
+                            <td>$<?= number_format($row['precio_vta'], 2) ?></td>
+                            <?php $subtotal = ($row['precio_vta'] * $row['cantidad']); ?>
+                            <td>$<?= number_format($subtotal, 2) ?></td>
+                        </tr>
+                        <?php
+                                $total += $subtotal;
+                            }
+                        } ?>
+                    </tbody>
+                    <tr>
+                        <td colspan="5" class="text-right"><h4>Total</h4></td>
+                        <td colspan="6" class="text-right"><h4>$<?= number_format($total, 2) ?></h4></td>
                     </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $i = 1;
-                    $total = 0;
-                    // Si es array de ventas y no está vacío
-                    if (!empty($venta) && is_array($venta)) {
-                        foreach ($venta as $row) {
-                            $imagen = $row['imagen'];
-                            // $total = $row['precio'];
-                    ?>
-                    <tr class="text-center">
-                        <th><?= $i++ ?></th>
-                        <td><?= $row['nombre_prod'] ?></td>
-                        <td><img width="100" height="65" src="<?= base_url('assets/uploads/' . $imagen) ?>"></td>
-                        <td><?= number_format($row['cantidad']) ?></td>
-                        <td>$<?= number_format($row['precio_vta'], 2) ?></td>
-                        <?php $subtotal = ($row['precio_vta'] * $row['cantidad']); ?>
-                        <td>$<?= number_format($subtotal, 2) ?></td>
-                    </tr>
-                    <?php
-                            $total += $subtotal;
-                        }
-                    } ?>
-                </tbody>
-                <tr>
-                    <td colspan="5" class="text-right"><h4>Total</h4></td>
-                    <td colspan="6" class="text-right"><h4>$<?= number_format($total, 2) ?></h4></td>
-                </tr>
-            </table>
+                </table>
+            </div>
         </div>
     </div>
 </div>

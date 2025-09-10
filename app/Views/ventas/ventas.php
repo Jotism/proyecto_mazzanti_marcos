@@ -16,7 +16,7 @@
 // AGRUPAR por Fecha (YYYY-MM-DD) + Usuario
 // ----------------------------------------------------
 function fechaKey($row) {
-    // usa 'fecha' de la cabecera; si se llama distinto, cambiá aquí
+
     $raw = $row['fecha'] ?? $row['fecha_venta'] ?? $row['created_at'] ?? null;
     if (!$raw) return null;
     try {
@@ -71,7 +71,7 @@ uasort($grupos, function($a, $b){
 ?>
 
 <div class="container my-4">
-  <h1 class="text-center mb-4">Ventas (por Fecha y Usuario)</h1>
+  <h1 class="text-center mb-4">Ventas Totales</h1>
 
   <!-- FILTRO RANGO DE FECHAS -->
   <div class="row g-2 align-items-end mb-3">
@@ -145,7 +145,7 @@ uasort($grupos, function($a, $b){
 
   <!-- SUBTOTAL GLOBAL DINÁMICO -->
   <div class="mt-4 text-end">
-    <h4>Subtotal mostrado: <span id="totalGeneral">$0.00</span></h4>
+    <h4>Subtotal: <span id="totalGeneral">$0.00</span></h4>
   </div>
 
 </div>
